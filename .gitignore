@@ -1,0 +1,66 @@
+ 
+#ignore non-theme directories
+
+configs/*
+
+sass/*
+
+scss/*
+
+# src/*
+
+configs/*
+
+contact-forms/*
+
+node_modules/*
+
+bin/*
+
+source-images/*
+
+js/misc-scripts/*
+
+# ignore non-theme files
+
+.babelrc
+
+.eslintrc
+
+.stylelintrc.json
+
+composer.json
+
+.htaccess
+
+report*
+
+# docs.md
+
+id_rsa.pub
+
+.gitmodules
+
+# gulpfile.js
+
+gulpfile.babel.js
+
+package-lock.json
+
+# package.json
+
+npm-shrinkwrap.json
+
+phpcs.xml.dist
+
+wp-config.php
+
+podsexport
+
+# ignore files with these strings
+
+*.old.*
+*.safe.*
+*.ignore.*
+*.code-workspace
+*copy*

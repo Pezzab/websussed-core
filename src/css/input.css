@@ -1,0 +1,625 @@
+/*!
+Theme Name: websussed
+Theme URI: http://underscores.me/
+Author: Perry Bonewell
+Author URI: http://websussed.co.uk
+Description: websussed parent theme
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: websussed-core
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+websussed is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/* @import "tailwindcss"; */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@config "./../../tailwind.config.js";
+
+@theme {
+    /* --*: initial; */
+
+}
+
+
+*, ::after, ::before {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+body {
+    @apply prose-xl;
+}
+
+
+.site-branding {
+    img {
+        @apply m-0;
+    }
+}
+
+/* entry content styles */
+.site-header,
+.entry-content,
+.widget {
+    ul, ol, li {
+        @apply p-0;
+        @apply m-0;
+    }
+}
+
+.menu-toggle {
+    @apply m-8
+}
+
+a.post-thumbnail,
+.post-thumbnail,
+.post-thumbnail img,
+.entry-content p,
+figure.aligncenter,
+p img {
+    @apply m-8;
+    @apply mx-auto;
+}
+
+figure.alignleft,
+p .alignleft,
+p img .alignleft {
+    @apply float-left;
+    @apply my-8;
+    @apply mr-8;
+}
+
+p .alignright,
+.alignright,
+p img.alignright {
+    @apply float-right;
+    @apply my-8;
+    @apply ml-8;
+}
+
+img,
+figure {
+    @apply max-w-full;
+    @apply mx-auto;
+}
+
+/* full width containers always go to screen edge
+ * makes sure all content has padding keeping it away from the screen edge
+ */
+.contact-details,
+main > header,
+.site-header,
+.site-navigation,
+#breadcrumbs,
+article,
+.posts-navigation,
+.comments-area,
+.widget,
+.site-footer,
+.content_wysiwyg,
+.content_html,
+.edit_custom {
+    @apply px-8;
+}
+
+.edit_custom {
+    @apply relative;
+    @apply clear-both;
+}
+
+.edit_custom::before {
+    content: '';
+    width: 80%;
+    left: 10%;
+    right: 10%;
+    height: 6px;
+    position: absolute;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    @apply bg-fuchsia-500;
+    top: 50%;
+    bottom: 0;
+    display: block;
+}
+
+article,
+.comments-area {
+    @apply pt-16;
+    @apply pb-8;
+}
+
+main > header {
+    @apply pt-16;  
+}
+
+footer {
+    @apply clear-both;
+}
+
+.site-header { @apply pt-8; }
+.site-footer { @apply pb-8; }
+
+/* constraint content to reading width */
+
+/* .site-branding, */
+/* #primary-menu, */
+main > header > *,
+article header > *,
+article .post-thumbnail > *,
+.entry-content,
+.entry-summary > *,
+.posts-navigation > *,
+.comments-area > *,
+.widget > *,
+.entry-footer > *,
+.content_wysiwyg > *,
+.content_html > *
+{
+    /* @apply p-8; */
+    @apply max-w-[870px];
+    @apply mx-auto;
+}
+
+.widget ul,
+ul.wp-block-archives-list,
+ul.wp-block-categories-list {
+    @apply flex-wrap;
+    @apply flex;
+    /* @apply gap-4; */
+    li {
+        @apply m-0;
+        @apply mr-8;
+    }
+}
+
+.widget ol li article,
+li article,
+.comments-area ol {
+    @apply p-0;
+}
+
+.widget ul li.cat-item {
+    @apply block;
+    @apply w-max;
+    float: left;
+}
+
+/* TYPOGRAPHY and LINK STYLES */
+
+body {
+    @apply font-sans;
+}
+
+h1, h2, h3, h4, h5 {
+    @apply font-heading;
+}
+
+a {
+    @apply text-blue-600;
+}
+
+.edit-link a {
+    @apply text-white;
+}
+
+#primary-menu .nav-menu li.page_item {
+    /* @apply grid-cols-1; */
+}
+
+.skip-link {
+    @apply hidden;
+}
+
+.edit-link
+ {
+    @apply bg-fuchsia-500;
+    @apply p-1;
+    @apply border-white;
+    @apply border-2;
+    @apply rounded-md;
+    @apply inline-block;
+    @apply text-white;
+    @apply float-right;
+    /* @apply my-8; */
+}
+
+ul.nav-menu {
+    /* @apply max-w-prose; */
+    /* @apply flex; */
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    /* font-size: 15px; */
+}
+
+
+.footer-nav {
+    ul, li {
+        @apply pl-0;
+    }
+}
+
+/* clicky menu */
+
+
+/**
+* Clicky Menus v1.2.0
+*/
+
+/**
+* Initial state, hidden off screen
+*/
+.nav-menu ul {
+position: absolute;
+top: 100%;
+left: 0;
+visibility: hidden; /*[1]*/
+}
+
+.nav-menu > li {
+position: relative;
+}
+
+.nav-menu li {
+    /* background-color: wheat; */
+}
+
+/**
+* No JS fallback
+*
+* Triggers menus on hover rather than click. Supports keyboard navigation in modern browsers.
+*/
+.nav-menu.no-js li:hover > ul {
+visibility: visible;
+}
+.nav-menu.no-js li:focus-within > ul { /*[2]*/
+visibility: visible;
+}
+
+/**
+* Open/Close Menu Behavior with JS
+*/
+.nav-menu ul[aria-hidden="false"] {
+visibility: visible;
+}
+
+/* Prevent offscreen-submenus */
+.nav-menu .sub-menu--right {
+left: auto !important;
+right: 1em !important;
+}
+
+/**
+* Footnotes
+*
+* [1] Using `visibility` instead of `display` allows for easier transitions and animation of submenus
+* [2] Must be a separate ruleset so that hover works in non-modern browsers
+*/
+
+
+/* DEMO CSS */
+body {
+/* min-height: 100vh;
+background: linear-gradient(-37deg, teal, purple, orange) center/cover no-repeat;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+     Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+     "Helvetica Neue", sans-serif; */
+} 
+
+
+.site-navigation {
+    @apply relative;
+    z-index: 1000;
+    @apply pt-20;
+
+}
+
+.fa-brands,
+.fa-solid {
+    @apply mr-3;
+}
+
+.nav-menu {
+@apply justify-between;
+@apply m-0;
+@apply p-0;
+@apply list-none;
+/* @apply px-8; */
+}
+
+.nav-contact {
+    @apply justify-end;
+}
+
+button.menu-toggle {
+    @apply block;
+    @apply lg:hidden;
+    /* @apply float-right; */
+    @apply absolute;
+    @apply top-0;
+    @apply right-0;
+}
+
+
+
+nav.toggled > .nav-menu {
+    /* background-color: red; */
+    display: block;
+    @apply lg:flex;
+}
+
+nav > .nav-menu {
+    display: none;
+    @apply lg:flex;
+    @apply lg:gap-1;
+    @apply clear-both;
+}
+
+/* General Link & Button Styles */
+.nav-menu a,
+.nav-menu > li > button,
+.nav-menu .page_item_has_children {
+ @apply p-2;
+ @apply px-4;
+
+}
+
+.nav-menu > li > button {
+    @apply pr-12;
+}
+
+.nav-menu .menu-item-has-children button {
+    /* padding-right: 2em; */
+}
+
+.nav-menu .menu-item,
+.nav-menu .menu-item button {
+    width: 100%;
+    display: block;
+    @apply lg:flex;
+    @apply text-right;
+    @apply lg:text-center
+}
+
+.nav-menu a:hover,
+.nav-menu li.page_item_has_children:hover {
+/* background: pink; */
+}
+
+.nav-menu a:focus,
+.nav-menu li button:focus,
+.nav-menu .page_item_has_children :focus {
+/* outline: .125em dotted purple; */
+outline-offset: -.125em;
+}
+
+/* Top Level Items */
+.nav-menu > li {
+flex: 1 1 auto;
+display: flex;
+flex-wrap: wrap;
+@apply lg:max-w-fit;
+@apply p-0;
+@apply mt-0;
+}
+
+.nav-menu > li > a,
+.nav-menu > li > button,
+.nav-menu > li.page_item_has_children  {
+display: block;
+flex-wrap: wrap;
+align-items: center;
+border: 0;
+font-size: inherit;
+line-height: 1.5;
+cursor: pointer;
+/* background-color: green; */
+}
+
+.nav-menu > li > button:hover {
+    cursor: pointer;
+    background: pink;
+}
+
+.nav-menu > li > button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid rgb(0, 0, 0);
+    @apply right-4;
+    @apply my-2;
+}
+
+.nav-menu > li > button {
+    position: relative;
+}
+
+button[aria-expanded="true"]::after {
+    transform: rotate(90deg);
+}
+
+@media (min-width: 1024px) {
+.nav-menu > li > a,
+.nav-menu > li > button {
+display: flex;
+} 
+}
+
+/* Icon */
+.nav-menu svg {
+width: 1em;
+height: 1em;
+margin-left: .5em;
+}
+
+.nav-menu [aria-expanded="true"] svg {
+/* transform: scaleY(-1); */
+}
+
+/* Submenu Styles */
+.nav-menu ul {
+min-width: 100%;
+margin-top: .25em;
+padding: 0;
+list-style: none;
+background-color: #eee;
+border-radius: 3px;
+}
+
+@media (min-width: 540px) {
+.nav-menu ul {
+/* box-shadow: 2px 4px 4px rgba(0,0,0,.2); */
+/* transform: translateY(0em); */
+/* opacity: .5;
+transition-property: transform opacity;
+transition-duration: .1s; */
+}
+}
+
+/* Ensure no-js support works by covering the .25em margin-top gap between submenu and parent item with a pseudo-element that extends the "surface" of the submenu. If you don't care as much about no-js mode, you could also just set margin-top: 0 when .no-js is present.  */
+.nav-menu.no-js ul::before {
+position: absolute;
+display: block;
+content: "";
+width: 100%;
+height: .25em;
+top: -.25em;
+}
+
+/* Responsive Submenu Behavior */
+.nav-menu ul[aria-hidden="false"] {
+position: static;
+width: 100%;
+flex: 0 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .nav-menu li ul[aria-hidden="false"] {
+    position: absolute;
+    width: auto;
+    /* transform: translateY(0); */
+    opacity: 1;
+    left: 1em;
+    margin-top: 1em;
+    }
+    .nav-menu li ul::before {
+        /* content: ''; */
+        border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid rgb(0, 0, 0);
+    position: absolute;
+    top: -20px;
+    }
+}
+
+/* Submenu Links */
+.nav-menu ul a {
+    display: block;
+    padding-top: .375em;
+    padding-bottom: .375em;
+}
+@media (min-width: 1024px) {
+    .nav-menu ul a {
+    padding: .375em 1em;
+    white-space: nowrap;
+    }
+}
+
+.contact-nav ul {
+    @apply flex;
+    @apply gap-8;
+    @apply p-0;
+
+    li {
+        @apply p-0;
+    }
+}
+
+.contact-details {
+    @apply pt-4;
+    @apply md:flex;
+    @apply justify-between;
+}
+
+ul.social_links {
+    @apply flex;
+    @apply gap-3;
+    @apply p-0;
+    @apply m-0;
+    @apply text-5xl;
+
+    li {
+        @apply flex;
+        @apply p-0;
+        @apply m-0;
+
+        a i {
+            @apply m-0;
+        }
+    }
+}
+
+.tel_nos {
+    @apply sm:flex;
+    @apply gap-8;
+}
+
+.tel_nos span {
+    @apply flex;
+    @apply justify-start;
+    @apply flex-col;    
+}
+
+
+.header-layout_one {
+    @apply lg:grid;
+    .site-branding {
+        @apply col-span-2;
+        @apply flex;
+        @apply justify-center;
+        @apply lg:justify-normal;
+    }
+    .contact-nav {
+        @apply col-span-1;
+    }
+    .site-navigation {
+        @apply col-span-3;
+        @apply px-0;
+    }
+}
+
+.header-layout_two {
+    @apply lg:grid;
+    @apply grid-cols-2;
+
+    .site-branding {
+        @apply col-span-1;
+        @apply flex;
+        @apply justify-center;
+        @apply lg:justify-normal;
+    }
+    .contact-nav {
+        @apply col-span-1;
+    }
+}
+
