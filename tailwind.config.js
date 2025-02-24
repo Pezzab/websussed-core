@@ -7,6 +7,8 @@ module.exports = {
     fontFamily:{
       'heading': ['Bebas Neue'],
       'sans': ['Helvetica'],
+      spacing: {
+      },
     },
     screens: {
       'mddown': { 'max': '767px' },
@@ -27,9 +29,12 @@ module.exports = {
     },
     extend: {
       colors: {
+        'link': 'blue',
+        'link-hover': 'darkblue',
+        'copybg': 'whitesmoke',
+        'copy': 'darkslategray',
       },
     },
   },
   variants: {},
-  plugins: []
 }

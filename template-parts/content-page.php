@@ -10,7 +10,7 @@
 ?>
 
 <?php 
-		websussed_custom_content( 'before_content' );
+		websussed_core_custom_content( 'before_content' );
 			?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -63,5 +63,5 @@
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php 
-		websussed_custom_content( 'after_content' );
+		websussed_core_custom_content( 'after_content' );
 			?>

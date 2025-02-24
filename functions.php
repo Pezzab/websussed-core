@@ -152,15 +152,6 @@ function websussed_core_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'websussed_core_scripts' );
 
-function webussed_core_add_fonts() {
-
-    wp_register_style('google-fonts-async-defer', 'https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-    wp_enqueue_style('google-fonts-async-defer');
-
-}
-
-add_action( 'wp_enqueue_scripts', 'webussed_core_add_fonts' );
-
 /**
  * Implement the Custom Header feature.
  */

@@ -1,6 +1,6 @@
 <?php // header layout_one ?>
 
-<?php websussed_custom_content( 'header_custom_content' ) ; ?>
+<?php websussed_core_custom_content( 'header_custom_content' ) ; ?>
 
 <?php websussed_core_skip_link() ; ?>
 
@@ -8,9 +8,13 @@
 
 	<header id="masthead" class="site-header header-layout_two">
 
-	<?php websussed_core_site_branding() ; ?>
+	<div>
 
-		<?php websussed_core_contact_nav() ; ?>
+	<?php websussed_core_site_branding() ; ?>
+	<?php websussed_core_contact_nav() ; ?>
+
+
+	</div>
 
 	</header><!-- #masthead -->
 

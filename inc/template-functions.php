@@ -37,7 +37,7 @@ function websussed_core_pingback_header() {
 add_action( 'wp_head', 'websussed_core_pingback_header' );
 
 
-function websussed_custom_content( $position ) {
+function websussed_core_custom_content( $position ) {
 
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' ) ;
 
@@ -85,7 +85,7 @@ function websussed_custom_content( $position ) {
 					if ( $pod->exists() && $pod->field('custom_html') ) :
 
 						$custom_html_output = $pod->field( 'custom_html' );
-						$custom_html_output = '<div class="clear-both ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '">' . $custom_html_output . '</div>' ;
+						$custom_html_output = '<div class="content_html ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '">' . $custom_html_output . '</div>' ;
 						
 						$custom_html_edit_button  = '';
 
@@ -99,7 +99,7 @@ function websussed_custom_content( $position ) {
 					elseif ( $pod->exists() && $pod->field('wysiwyg_content') ) :
 
 						$custom_wysiwyg_output = $pod->field( 'wysiwyg_content' );
-						$custom_wysiwyg_output = '<div class="content_wysiwyg ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '"><div>' . $custom_wysiwyg_output . '</div></div>' ;
+						$custom_wysiwyg_output = '<div class="content_wysiwyg ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '"><div>' . wpautop( $custom_wysiwyg_output ) . '</div></div>' ;
 
 						$custom_wysiwyg_edit_button = '';
 
@@ -137,7 +137,7 @@ function websussed_custom_content( $position ) {
 }
 
 
-function websussed_hero() { ?>
+function websussed_core_hero() { ?>
 
 	<?php
 		if ( is_plugin_active( 'pods/init.php' ) ) :
@@ -165,7 +165,7 @@ function websussed_hero() { ?>
 				<?php endif; ?>	
 
 
-				<?php //websussed_custom_content( 'hero_content' ) ; ?>
+				<?php //websussed_core_custom_content( 'hero_content' ) ; ?>
 	
 
 				<?php //	endif; // check if hero active
@@ -194,8 +194,8 @@ function websussed_core_skip_link() { ?>
 function websussed_core_contact_links(){ ?>
 
 <div class="contact-details">
-	<?php websussed_social_links(); ?>
-	<?php websussed_tel_nos(); ?>
+	<?php websussed_core_social_links(); ?>
+	<?php websussed_core_telephone_nos(); ?>
 	</div>
 
 <?php }
@@ -239,7 +239,7 @@ function websussed_core_site_branding() {?>
 function websussed_core_yoast_breadcrumb(){
 
 	if ( function_exists('yoast_breadcrumb') && ! is_front_page() && ! is_home() ) {
-	yoast_breadcrumb( '<span id="breadcrumbs">','</span>' );
+	yoast_breadcrumb( '<div id="breadcrumbs">','</div>' );
 	}
 
 }

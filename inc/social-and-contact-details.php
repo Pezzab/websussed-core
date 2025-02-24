@@ -1,6 +1,6 @@
 <?php
 
-function websussed_tel_nos() {
+function websussed_core_telephone_nos() {
 
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' ) ;
 
@@ -27,7 +27,7 @@ function websussed_tel_nos() {
 
 	}
 
-function websussed_social_links() {
+function websussed_core_social_links() {
 
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' ) ;
 

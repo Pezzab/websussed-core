@@ -14,7 +14,7 @@
 <?php // get_sidebar();?>
 
 <?php 
-		websussed_custom_content( 'footer_custom_content' );
+		websussed_core_custom_content( 'footer_custom_content' );
 			?>
 
 	<footer id="colophon" class="site-footer">
