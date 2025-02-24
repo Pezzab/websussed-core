@@ -602,17 +602,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
 }
-utilities: {
-  scroll-snap-none {
-    scroll-snap-type: none;
-  }
-  scroll-snap-x {
-    scroll-snap-type: x;
-  }
-  scroll-snap-y {
-    scroll-snap-type: y;
-  }
-}
 *, ::after, ::before {
   box-sizing: border-box;
   border-width: 0;
@@ -830,9 +819,6 @@ body {
     margin: calc(var(--spacing) * 0);
   }
 }
-.menu-toggle {
-  margin: calc(var(--spacing) * 8);
-}
 a.post-thumbnail, .post-thumbnail, .post-thumbnail img, .entry-content p, figure.aligncenter, p img {
   margin: calc(var(--spacing) * 8);
   margin-inline: auto;
@@ -851,8 +837,12 @@ img, figure {
   max-width: 100%;
   margin-inline: auto;
 }
-.contact-details, main > header, .site-header, .site-navigation, #breadcrumbs, article, .post-navigation, .posts-navigation, .comments-area, .widget, .site-footer, .content_wysiwyg, .content_html, .edit_custom {
+.contact-details, .site-header, .site-navigation, #breadcrumbs, article, .post-navigation, .posts-navigation, .comments-area, .widget, .site-footer, .content_wysiwyg, .content_html, .edit_custom {
   padding-inline: calc(var(--spacing) * 8);
+  padding-bottom: calc(var(--spacing) * 2);
+  padding-top: calc(var(--spacing) * 2);
+}
+.entry-content, .entry-footer {
   padding-bottom: calc(var(--spacing) * 2);
   padding-top: calc(var(--spacing) * 2);
 }
@@ -882,7 +872,7 @@ textarea, input {
   bottom: 0;
   display: block;
 }
-article, .comments-area {
+article, .comments-area, main > header {
   padding-top: calc(var(--spacing) * 16);
   padding-bottom: calc(var(--spacing) * 8);
 }
@@ -962,7 +952,7 @@ pre {
 .site-navigation {
   position: relative;
   z-index: 1000;
-  padding-top: calc(var(--spacing) * 20);
+  min-height: 3em;
 }
 .fa-brands, .fa-solid {
   margin-right: calc(var(--spacing) * 3);
@@ -983,13 +973,15 @@ button.menu-toggle {
   }
   position: absolute;
   top: calc(var(--spacing) * 0);
-  right: calc(var(--spacing) * 0);
+  right: calc(var(--spacing) * 8);
+  min-height: 3em;
 }
 nav.toggled > .nav-menu {
   display: block;
   @media (width >= 1024px) {
     display: flex;
   }
+  padding-top: 3em;
 }
 nav > .nav-menu {
   display: none;
@@ -1172,6 +1164,7 @@ ul.social_links {
     @media (width >= 1024px) {
       justify-content: normal;
     }
+    flex-direction: column;
   }
   .contact-nav {
     grid-column: span 1 / span 1;
@@ -1179,6 +1172,9 @@ ul.social_links {
   .site-navigation {
     grid-column: span 3 / span 3;
     padding-inline: calc(var(--spacing) * 0);
+  }
+  button.menu-toggle {
+    right: calc(var(--spacing) * 0);
   }
 }
 .header-layout_two div {
@@ -1193,37 +1189,11 @@ ul.social_links {
     @media (width >= 1024px) {
       justify-content: normal;
     }
+    flex-direction: column;
   }
   .contact-nav {
     grid-column: span 1 / span 1;
   }
-}
-.contact-details, .site-header, .site-navigation, #breadcrumbs, main > header, article, article > header, article > footer, .post-navigation, .posts-navigation, .comments-area, .widget, .site-footer, .content_wysiwyg, .content_html, .edit_custom {
-  background-color: var(--color-blue-300);
-  border-top-style: var(--tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--color-blue-600);
-}
-main > header > *, article header > *, article .post-thumbnail > *, .entry-content, .entry-summary > *, .post-navigation > *, .posts-navigation > *, .comments-area > *, .widget > *, .entry-footer > *, .content_wysiwyg > *, .content_html > * {
-  background-color: var(--color-green-300);
-  border-top-style: var(--tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--color-green-600);
-}
-.content_html {
-  background-color: var(--color-yellow-300);
-  border-top-style: var(--tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--color-yellow-700);
-}
-.content_wysiwyg {
-  background-color: var(--color-yellow-300);
-  border-top-style: var(--tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--color-yellow-700);
-}
-p {
-  background-color: var(--color-teal-200);
 }
 @keyframes spin {
   to {

@@ -32,19 +32,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "tailwindcss/theme.css" layer(theme);
 @plugin "@tailwindcss/typography";
 @import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" layer(utilities) source('../../');
-
-utilities: {
-    scroll-snap-none {
-      scroll-snap-type: none;
-    }
-    scroll-snap-x {
-      scroll-snap-type: x;
-    }
-    scroll-snap-y {
-      scroll-snap-type: y;
-    }
-  }
+@import "tailwindcss/utilities.css" layer(utilities);
 
 
 *, ::after, ::before {
@@ -79,10 +67,6 @@ body {
         @apply p-0;
         @apply m-0;
     }
-}
-
-.menu-toggle {
-    @apply m-8
 }
 
 a.post-thumbnail,
@@ -121,7 +105,6 @@ figure {
  * makes sure all content has padding keeping it away from the screen edge
  */
 .contact-details,
-main > header,
 .site-header,
 .site-navigation,
 #breadcrumbs,
@@ -137,6 +120,12 @@ article,
     @apply px-8;
     @apply pb-2;
     @apply pt-2;
+}
+
+.entry-content,
+.entry-footer {
+    @apply pb-2;
+    @apply pt-2; 
 }
 
 /* constraint content to reading width */
@@ -191,7 +180,8 @@ input {
 }
 
 article,
-.comments-area {
+.comments-area,
+main > header {
     @apply pt-16;
     @apply pb-8;
 }
@@ -363,7 +353,8 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
 .site-navigation {
     @apply relative;
     z-index: 1000;
-    @apply pt-20;
+    /* @apply pt-20; */
+@apply min-h-[3em];
 
 }
 
@@ -390,7 +381,8 @@ button.menu-toggle {
     /* @apply float-right; */
     @apply absolute;
     @apply top-0;
-    @apply right-0;
+    @apply right-8;
+    @apply min-h-[3em];
 }
 
 
@@ -399,6 +391,7 @@ nav.toggled > .nav-menu {
     /* background-color: red; */
     display: block;
     @apply lg:flex;
+    @apply pt-[3em];
 }
 
 nav > .nav-menu {
@@ -634,6 +627,7 @@ ul.social_links {
         @apply flex;
         @apply justify-center;
         @apply lg:justify-normal;
+        @apply flex-col;
     }
     .contact-nav {
         @apply col-span-1;
@@ -641,6 +635,10 @@ ul.social_links {
     .site-navigation {
         @apply col-span-3;
         @apply px-0;
+    }
+
+    button.menu-toggle {
+        @apply right-0;
     }
 }
 
@@ -653,76 +651,10 @@ ul.social_links {
         @apply flex;
         @apply justify-center;
         @apply lg:justify-normal;
+        @apply flex-col;
     }
     .contact-nav {
         @apply col-span-1;
     }
+
 }
-
-/* Devstyles */
-
-
-/* full width containers always go to screen edge
- * makes sure all content has padding keeping it away from the screen edge
- */
- .contact-details,
- .site-header,
- .site-navigation,
- #breadcrumbs,
- main > header,
- article,
- article > header,
- article > footer,
- .post-navigation,
- .posts-navigation,
- .comments-area,
- .widget,
- .site-footer,
- .content_wysiwyg,
- .content_html,
- .edit_custom {
-    @apply bg-blue-300;
-    @apply border-t;
-    @apply border-blue-600;
- }
- 
- /* constraint content to reading width */
- 
- /* .site-branding, */
- /* #primary-menu, */
- main > header > *,
- article header > *,
- article .post-thumbnail > *,
- .entry-content,
- .entry-summary > *,
- .post-navigation > *,
- .posts-navigation > *,
- .comments-area > *,
- .widget > *,
- .entry-footer > *,
- .content_wysiwyg > *,
- .content_html > *
- {
-    @apply bg-green-300;
-    @apply border-t;
-    @apply border-green-600;
-    /* background-color: darkslategrey; */
- }
-
-
-.content_html {
-    @apply bg-yellow-300;
-    @apply border-t;
-    @apply border-yellow-700;
-}
-
-.content_wysiwyg {
-    @apply bg-yellow-300;
-    @apply border-t;
-    @apply border-yellow-700;
-}
-
-p {
-    @apply bg-teal-200;
-}
- 

@@ -15,9 +15,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+<?php if ( ! is_front_page() ) : ?>
+
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+
+<?php endif; ?>
 
 	<?php websussed_core_post_thumbnail(); ?>
 

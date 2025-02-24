@@ -33,7 +33,7 @@ if ( has_nav_menu( 'main' ) ) {
 
     // var_dump( $main_toggle );
 
-        echo '<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Primary Menu</button>'.
+        echo ''.
 
         wp_nav_menu(
             array(
@@ -44,7 +44,7 @@ if ( has_nav_menu( 'main' ) ) {
             )
         );
 
-    echo '</nav><!-- #site-navigation -->';
+    echo '<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Primary Menu</button></nav><!-- #site-navigation -->';
     };
 
 }
