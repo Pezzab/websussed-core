@@ -152,6 +152,21 @@ function websussed_core_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'websussed_core_scripts' );
 
+function websussed_core_inline_style(){
+echo '<style id="websussed-core-inline-css">
+	.sr-only { position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	white-space: nowrap;
+	border-width: 0; }
+</style>';
+}	
+add_action('wp_head', 'websussed_core_inline_style', 10) ;
+
 /**
  * Implement the Custom Header feature.
  */
