@@ -208,7 +208,8 @@ require get_template_directory() . '/inc/fontawesome_setup.php';
 /** 
  * Adds adds navigation elements as functions
  */
-require get_template_directory() . '/inc/navigation-blocks.php';
+
+ require get_template_directory() . '/inc/navigation-blocks.php';
 
 
 

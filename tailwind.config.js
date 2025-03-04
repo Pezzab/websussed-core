@@ -5,10 +5,8 @@ module.exports = {
   },
   theme: {
     fontFamily:{
-      'heading': ['Bebas Neue'],
-      'sans': ['Helvetica'],
-      spacing: {
-      },
+      // 'heading': ['Bebas Neue'],
+      // 'sans': ['Helvetica'],
     },
     screens: {
       'mddown': { 'max': '767px' },
@@ -29,12 +27,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        'link': 'blue',
-        'link-hover': 'darkblue',
-        'copybg': 'whitesmoke',
-        'copy': 'darkslategray',
+        'linkcol' : 'blue',
+        'hovercol' : 'darkblue',
+        'bodycol' : 'whitesmoke',
+        'copycol' : 'darkslategray',
+        'ctacol' : 'orange',
       },
     },
   },
   variants: {},
+  plugins: [],
 }

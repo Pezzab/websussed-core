@@ -85,7 +85,7 @@ function websussed_core_custom_content( $position ) {
 					if ( $pod->exists() && $pod->field('custom_html') ) :
 
 						$custom_html_output = $pod->field( 'custom_html' );
-						$custom_html_output = '<div class="content_html ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '">' . $custom_html_output . '</div>' ;
+						$custom_html_output = '<div class="content_html ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '"><div>' . $custom_html_output . '</div></div>' ;
 						
 						$custom_html_edit_button  = '';
 
@@ -99,7 +99,7 @@ function websussed_core_custom_content( $position ) {
 					elseif ( $pod->exists() && $pod->field('wysiwyg_content') ) :
 
 						$custom_wysiwyg_output = $pod->field( 'wysiwyg_content' );
-						$custom_wysiwyg_output = '<div class="content_wysiwyg ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '"><div>' . wpautop( $custom_wysiwyg_output ) . '</div></div>' ;
+						$custom_wysiwyg_output = '<div class="content_wysiwyg ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '"><div class="site-width"><div>' . wpautop( $custom_wysiwyg_output ) . '</div></div></div>' ;
 
 						$custom_wysiwyg_edit_button = '';
 
@@ -125,9 +125,6 @@ function websussed_core_custom_content( $position ) {
 					echo $custom_html;
 					echo $custom_wysiwyg;	
 					endif ;
-
-					// echo $custom_html;
-					// echo $custom_wysiwyg;
 
 				}
 
@@ -193,9 +190,13 @@ function websussed_core_skip_link() { ?>
 
 function websussed_core_contact_links(){ ?>
 
-<div class="contact-details">
-	<?php websussed_core_social_links(); ?>
-	<?php websussed_core_telephone_nos(); ?>
+	<div class="contact-details">
+		<div class="site-width">
+			<div>
+		<?php websussed_core_social_links(); ?>
+		<?php websussed_core_telephone_nos(); ?>
+			</div>
+		</div>
 	</div>
 
 <?php }
@@ -239,7 +240,7 @@ function websussed_core_site_branding() {?>
 function websussed_core_yoast_breadcrumb(){
 
 	if ( function_exists('yoast_breadcrumb') && ! is_front_page() && ! is_home() ) {
-	yoast_breadcrumb( '<div id="breadcrumbs">','</div>' );
+	yoast_breadcrumb( '<div id="breadcrumbs"><div class="site-width"><div>','</div></div></div>' );
 	}
 
 }

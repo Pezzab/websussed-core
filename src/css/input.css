@@ -1,55 +1,68 @@
 /*!
-Theme Name: Websussed Core
-Theme URI: http://underscores.me/
-Author: Perry Bonewell
+Theme Name: WebSussed Core
+Author: WebSussed
 Author URI: http://websussed.co.uk
 Description: websussed parent theme
-Version: 1.0.0
-Tested up to: 5.4
-Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: websussed-core
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned.
-
-websussed is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments
 */
+
+@config "./../../tailwind.config.js"; 
 
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
 @plugin "@tailwindcss/typography";
 @import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" layer(utilities);
+/* @import "tailwindcss/utilities.css" layer(utilities); */
 
 @theme {
-        --color-*: initial;
+       --color-*: initial;
 }
-
 
 *, ::after, ::before {
   box-sizing: border-box;
   border-width: 0;
   border-style: dotted;
-  border-color: #e5e7eb;
-  /* @apply wrap-top; */
-  /* @apply scroll-snap-x; */
+  border-color: #e5e7eb; 
 }
+
+/* ___________________________________________   site wrapper */
 
 body {
     @apply prose-xl;
-    /* @apply bg-blue-600; */
     @apply m-0;
-    /* @apply bg-copybg;
-    @apply text-copy; */
 }
 
+#page.site {
+
+}
+
+/* ___________________________________________   main layout components */
+
+/* _____________________   header */
+
+.contact-details,
+header.site-header,
+.site-navigation,
+main > header {
+    @apply px-8;
+    @apply pb-2;
+    @apply pt-2;
+}
+
+nav.contact-nav {
+    @apply pb-2;
+    @apply pt-2;   
+}
+
+header.site-header {
+    ul, ol, li {
+        @apply p-0;
+        @apply m-0;
+    }
+}
 
 .site-branding {
     img {
@@ -57,15 +70,93 @@ body {
     }
 }
 
-/* entry content styles */
-.site-header,
+header.site-header {
+    /* @apply pt-16; */
+}
+
+/* _____________________   main */ 
+
+main.site-main {
+    
+}
+
+.site-width {
+    background-color: cornsilk;
+    /* @apply flow-root; */
+    /* @apply container; */
+    /* @apply mx-auto; */
+}
+
+.site-header { @apply pt-8; }
+.site-footer { @apply pb-8; }
+
+#breadcrumbs,
+article,
+.post-navigation,
+.posts-navigation,
+.comments-area,
+.widget,
+.site-footer,
+.content_wysiwyg,
+.edit_custom {
+    @apply px-8;
+    @apply pb-2;
+    @apply pt-2;
+}
+
+article,
+.comments-area,
+main > header {
+    /* @apply pt-16; */
+    /* @apply pb-8; */
+}
+
 .entry-content,
-.widget {
-    ul, ol, li {
-        @apply p-0;
-        @apply m-0;
+.entry-footer {
+    @apply pb-2;
+    @apply pt-2; 
+}
+
+/* _____________________   site footer */ 
+
+footer {
+    @apply clear-both;
+}
+
+.footer-nav {
+    ul, li {
+        @apply pl-0;
     }
 }
+
+/* _____________________   set reading width */ 
+ 
+ main > header .site-width > *,
+ article header > *,
+ article .post-thumbnail > *,
+ .entry-content,
+ .entry-summary > *,
+ .post-navigation > *,
+ .posts-navigation > *,
+ #breadcrumbs .site-width div,
+ .comments-area > *,
+ .widget > *,
+ .entry-footer > *,
+ .content_wysiwyg .site-width > * {
+    @apply max-w-[870px];
+    @apply mx-auto;
+    @apply px-4;
+ }
+
+ #breadcrumbs span {
+    /* @apply block; */
+ }
+ 
+/* ___________________________________________   main content layout components */
+
+/* _____________________   X */ 
+
+/* entry content layout styles */
 
 a.post-thumbnail,
 .post-thumbnail,
@@ -99,108 +190,84 @@ figure {
     @apply mx-auto;
 }
 
-/* full width containers always go to screen edge
- * makes sure all content has padding keeping it away from the screen edge
- */
-.contact-details,
-.site-header,
-.site-navigation,
-#breadcrumbs,
-article,
-.post-navigation,
-.posts-navigation,
-.comments-area,
-.widget,
-.site-footer,
-.content_wysiwyg,
-.content_html,
-.edit_custom {
-    @apply px-8;
-    @apply pb-2;
-    @apply pt-2;
-}
-
-.entry-content,
-.entry-footer {
-    @apply pb-2;
-    @apply pt-2; 
-}
-
-/* constraint content to reading width */
-
-/* .site-branding, */
-/* #primary-menu, */
-main > header > *,
-article header > *,
-article .post-thumbnail > *,
-.entry-content,
-.entry-summary > *,
-.post-navigation > *,
-.posts-navigation > *,
-.comments-area > *,
-.widget > *,
-.entry-footer > *,
-.content_wysiwyg > *,
-.content_html > *
-{
-    /* @apply p-8; */
-    @apply max-w-[870px];
-
-    /* @apply content */
-    @apply mx-auto;
-    @apply px-4;
-}
+/* ___________________________________________   forms */
 
 textarea,
 input {
     @apply w-full;
 }
 
+/* ___________________________________________   edit buttons */
 
+.entry-footer div,
 .edit_custom {
     @apply relative;
-    @apply clear-both;
-}
+    @apply clear-both;}
 
+.entry-footer div::before,
 .edit_custom::before {
     content: '';
-    width: 80%;
-    left: 10%;
-    right: 10%;
-    height: 6px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    height: 2px;
     position: absolute;
     border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    /* @apply bg-fuchsia-500; */
+    /* border-bottom: 1px solid white; */
+    background-color: rgb(238, 48, 165);
     top: 50%;
     bottom: 0;
     display: block;
+    z-index: 1;
 }
 
-article,
-.comments-area,
-main > header {
-    @apply pt-16;
-    @apply pb-8;
+.skip-link {
+    @apply hidden;
 }
 
-main > header {
-  /* @apply pt-wrap-top; */
+.edit-link
+ {
+    background-color: rgba(238, 48, 165, 0.454);
+    @apply p-1;
+    /* @apply border-white; */
+    @apply border-2;
+    @apply rounded-md;
+    @apply inline-block;
+    @apply float-right;
+    /* @apply my-8; */
+    @apply absolute;
+    right: 0;
 }
 
-footer {
-    @apply clear-both;
+.edit-link:hover {
+    background-color: rgb(238, 48, 165);
 }
 
-.site-header { @apply pt-8; }
-.site-footer { @apply pb-8; }
+.edit-link a {
+    color: white;
+    display: block;
+}
+
+.edit-link a:hover {
+    color: white;
+}
+
+/* ___________________________________________   widgets */
+
+.widget {
+
+    ul, ol, li {
+        @apply p-0;
+        @apply m-0;
+    }
+}
 
 .widget ul,
 ul.wp-block-archives-list,
 ul.wp-block-categories-list {
     @apply flex-wrap;
     @apply flex;
-    /* @apply gap-4; */
+
     li {
         @apply m-0;
         @apply mr-8;
@@ -219,7 +286,7 @@ li article,
     float: left;
 }
 
-/* TYPOGRAPHY and LINK STYLES */
+/* ___________________________________________   typography */
 
 body {
     /* @apply font-sans; */
@@ -245,23 +312,6 @@ a:hover {
     /* @apply grid-cols-1; */
 }
 
-.skip-link {
-    @apply hidden;
-}
-
-.edit-link
- {
-    /* @apply bg-fuchsia-500; */
-    @apply p-1;
-    /* @apply border-white; */
-    @apply border-2;
-    @apply rounded-md;
-    @apply inline-block;
-    /* @apply text-white; */
-    @apply float-right;
-    /* @apply my-8; */
-}
-
 ul.nav-menu {
     /* @apply max-w-prose; */
     /* @apply flex; */
@@ -273,32 +323,38 @@ pre {
     /* font-size: 15px; */
 }
 
+/* ___________________________________________   main nav menu */
 
-.footer-nav {
-    ul, li {
-        @apply pl-0;
-    }
+.fa-brands,
+.fa-solid {
+    @apply mr-3;
 }
 
-/* clicky menu */
+.site-navigation {
+    @apply relative;
+    /* z-index: 1000; */
+    @apply z-50;
+    @apply min-h-[3em];
 
+}
 
-/**
-* Clicky Menus v1.2.0
-*/
+.nav-menu {
+    @apply justify-between;
+    @apply m-0;
+    @apply p-0;
+    @apply list-none;
+    /* @apply px-8; */
+}
 
-/**
-* Initial state, hidden off screen
-*/
 .nav-menu ul {
-position: absolute;
-top: 100%;
-left: 0;
-visibility: hidden; /*[1]*/
+    position: absolute;
+    top: 100%;
+    left: 0;
+    visibility: hidden;
 }
 
 .nav-menu > li {
-position: relative;
+    position: relative; 
 }
 
 .nav-menu li {
@@ -330,60 +386,9 @@ left: auto !important;
 right: 1em !important;
 }
 
-/**
-* Footnotes
-*
-* [1] Using `visibility` instead of `display` allows for easier transitions and animation of submenus
-* [2] Must be a separate ruleset so that hover works in non-modern browsers
-*/
-
-
-/* DEMO CSS */
-body {
-/* min-height: 100vh;
-background: linear-gradient(-37deg, teal, purple, orange) center/cover no-repeat;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-     Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-     "Helvetica Neue", sans-serif; */
-} 
-
-
-.site-navigation {
-    @apply relative;
-    z-index: 1000;
-    /* @apply pt-20; */
-@apply min-h-[3em];
-
-}
-
-.fa-brands,
-.fa-solid {
-    @apply mr-3;
-}
-
-.nav-menu {
-@apply justify-between;
-@apply m-0;
-@apply p-0;
-@apply list-none;
-/* @apply px-8; */
-}
-
 .nav-contact {
     @apply justify-end;
 }
-
-button.menu-toggle {
-    @apply block;
-    @apply lg:hidden;
-    /* @apply float-right; */
-    @apply absolute;
-    @apply top-0;
-    @apply right-8;
-    @apply min-h-[3em];
-}
-
-
 
 nav.toggled > .nav-menu {
     /* background-color: red; */
@@ -486,18 +491,12 @@ button[aria-expanded="true"]::after {
 }
 
 @media (min-width: 1024px) {
-.nav-menu > li > a,
-.nav-menu > li > button {
-display: flex;
-} 
+    .nav-menu > li > a,
+    .nav-menu > li > button {
+    display: flex;
+    } 
 }
 
-/* Icon */
-.nav-menu svg {
-width: 1em;
-height: 1em;
-margin-left: .5em;
-}
 
 .nav-menu [aria-expanded="true"] svg {
 /* transform: scaleY(-1); */
@@ -505,22 +504,12 @@ margin-left: .5em;
 
 /* Submenu Styles */
 .nav-menu ul {
-min-width: 100%;
-margin-top: .25em;
-padding: 0;
-list-style: none;
-background-color: #eee;
-border-radius: 3px;
-}
-
-@media (min-width: 540px) {
-.nav-menu ul {
-/* box-shadow: 2px 4px 4px rgba(0,0,0,.2); */
-/* transform: translateY(0em); */
-/* opacity: .5;
-transition-property: transform opacity;
-transition-duration: .1s; */
-}
+    min-width: 100%;
+    margin-top: .25em;
+    padding: 0;
+    list-style: none;
+    background-color: #eee;
+    border-radius: 3px;
 }
 
 /* Ensure no-js support works by covering the .25em margin-top gap between submenu and parent item with a pseudo-element that extends the "surface" of the submenu. If you don't care as much about no-js mode, you could also just set margin-top: 0 when .no-js is present.  */
@@ -572,6 +561,8 @@ flex: 0 0 auto;
     }
 }
 
+/* ___________________________________________   main nav menu */
+
 .contact-nav ul {
     @apply flex;
     @apply gap-8;
@@ -582,8 +573,10 @@ flex: 0 0 auto;
     }
 }
 
-.contact-details {
-    @apply pt-4;
+/* ___________________________________________   social links */
+
+.contact-details .site-width div {
+    /* @apply pt-4; */
     @apply md:flex;
     @apply justify-between;
 }
@@ -617,6 +610,7 @@ ul.social_links {
     @apply flex-col;    
 }
 
+/* ___________________________________________   custom layouts */
 
 .header-layout_one div {
     @apply lg:grid;
@@ -656,3 +650,89 @@ ul.social_links {
     }
 
 }
+
+/* ___________________________________________   responsive button */
+
+.menu-toggle {
+    background: blue;
+    border: 0;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.6;
+    /* scale: 0.7; */
+    border-radius: 8px;
+    transition: 0.25s;
+  }
+
+  button.menu-toggle {
+    /* @apply block; */
+    @apply lg:hidden;
+    /* @apply float-right; */
+    @apply absolute;
+    @apply top-0;
+    @apply right-8;
+    /* @apply min-h-[3em]; */
+}
+  
+  .menu-toggle {
+    opacity: 1;
+    /* background: #8f44fd; */
+  }
+  
+  .burger {
+    position: relative;
+    width: 32px;
+    border: 0;
+  }
+  
+  .burger,
+  .burger::before,
+  .burger::after {
+    display: block;
+    border-radius: 2px;
+    height: 2px;
+    background: #f9f9f9;
+    transition: 0.3s;
+  }
+  
+  .burger::before,
+  .burger::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+  
+  .burger::before {
+    top: -8px;
+  }
+  
+  .burger::after {
+    top: 8px;
+  }
+  
+  /* burger-1 */
+  
+  .burger.burger-1,
+  .burger.burger-1::before,
+  .burger.burger-1::after {
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+  }
+  
+  .toggled .burger.burger-1 {
+    transform: translateX(-50px);
+    background: transparent;
+  }
+  
+  .toggled .burger.burger-1::before {
+    transform: rotate(-45deg) translate(30px, 40px);
+  }
+  
+  .toggled .burger.burger-1::after {
+    transform: rotate(45deg) translate(30px, -42px);
+  }

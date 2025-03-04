@@ -7,7 +7,7 @@
 <?php websussed_core_contact_links() ; ?>
 
 	<header id="masthead" class="site-header header-layout_one">
-		<div>
+		<div class="site-width">
 
 		<?php websussed_core_site_branding() ; ?>
 		<?php websussed_core_contact_nav() ; ?>

@@ -44,9 +44,11 @@ if ( has_nav_menu( 'main' ) ) {
             )
         );
 
-    echo '<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Primary Menu</button></nav><!-- #site-navigation -->';
-    };
+    // echo '<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Primary Menu</button></nav><!-- #site-navigation -->';
 
+    echo '<button class="menu-toggle"><span class="burger burger-1"></span></button></nav><!-- #site-navigation -->';
+
+    };
 }
 
 // supplementary "utility" menu - list

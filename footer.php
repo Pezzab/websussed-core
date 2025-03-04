@@ -18,22 +18,20 @@
 			?>
 
 	<footer id="colophon" class="site-footer">
+	<div class="site-width">
 
 	<?php websussed_core_footer_nav() ; ?>
 
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'websussed-core' ) ); ?>">
+			<div class="copyright">&#169; <?php echo date('Y');?>  <?php bloginfo();?> | 
+			<a href="<?php echo esc_url( __( 'https://websussed.com/', 'websussed-core' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'websussed-core' ), 'WordPress' );
-				?>
+				printf( esc_html__( 'Hand built by %s', 'websussed-core' ), 'WebSussed' );
+				?></div>
 			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'websussed-core' ), 'websussed-core', '<a href="http://websussed.co.uk">Perry Bonewell</a>' );
-				?>
 		</div><!-- .site-info -->
+		</div><!-- .site-width -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

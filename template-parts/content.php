@@ -10,6 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="site-width">
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -62,4 +63,5 @@
 	<footer class="entry-footer">
 		<?php websussed_core_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+	</div><!-- .site-width -->
 </article><!-- #post-<?php the_ID(); ?> -->

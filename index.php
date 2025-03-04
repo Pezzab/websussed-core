@@ -22,8 +22,10 @@ get_header();
 
 			if ( is_home() && ! is_front_page() ) :
 				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				<header id="blog">
+					<div class="site-width">
+					<h1 class="page-title"><?php single_post_title(); ?></h1>
+					</div>
 				</header>
 				<?php
 			endif;

@@ -1,11 +1,11 @@
 <?php
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+// remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
+// remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
 add_action( 'wp_enqueue_scripts', function() {
   // https://github.com/WordPress/gutenberg/issues/36834
-  wp_dequeue_style( 'wp-block-library' );
+//   wp_dequeue_style( 'wp-block-library' );
   wp_dequeue_style( 'wp-block-library-theme' );
 
   // https://stackoverflow.com/a/74341697/278272
@@ -42,7 +42,7 @@ function prefix_remove_core_block_styles() {
 	wp_dequeue_style( 'wp-block-post-comments-form' );
 	wp_dequeue_style( 'wp-block-comment-edit-link' );
 	wp_dequeue_style( 'wp-block-comment-content' );
-	wp_dequeue_style( 'wp-block-buttons' );
+	wp_dequeue_style( 'wp-block-buttons' );	
 	wp_dequeue_style( 'wp-block-button' );
 	wp_dequeue_style( 'wp-block-post-navigation-link' );
 	wp_dequeue_style( 'wp-emoji-styles' );
@@ -50,4 +50,4 @@ function prefix_remove_core_block_styles() {
 	wp_dequeue_style( 'wp-block-template-skip-link' );
 	
 }
-add_action( 'wp_enqueue_scripts', 'prefix_remove_core_block_styles' );
+// add_action( 'wp_enqueue_scripts', 'prefix_remove_core_block_styles' );

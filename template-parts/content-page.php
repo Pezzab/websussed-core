@@ -14,6 +14,7 @@
 			?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="site-width">
 
 <?php if ( ! is_front_page() ) : ?>
 
@@ -63,7 +64,7 @@
 		</footer><!-- .entry-footer -->
 
 	<?php endif; ?>
-
+</div><!-- .site-width -->
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php 
