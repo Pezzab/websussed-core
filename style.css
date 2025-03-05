@@ -888,7 +888,7 @@ ul.social_links {
   }
 }
 .menu-toggle {
-  background-color: #0000ff;
+  background-color: #000000;
   border-style: var(--tw-border-style);
   border-width: 0px;
   width: calc(var(--spacing) * 14);
@@ -913,27 +913,29 @@ button.menu-toggle {
 }
 .burger {
   position: relative;
-  width: 32px;
-  border: 0;
+  width: calc(var(--spacing) * 8);
+  border-style: var(--tw-border-style);
+  border-width: 0px;
 }
 .burger, .burger::before, .burger::after {
   display: block;
-  border-radius: 2px;
+  border-radius: var(--radius-md);
   height: 2px;
-  background: #f9f9f9;
+  background-color: #ffffff;
   transition: 0.3s;
 }
 .burger::before, .burger::after {
-  content: "";
+  --tw-content: '';
+  content: var(--tw-content);
   position: absolute;
-  left: 0;
+  left: calc(var(--spacing) * 0);
   width: 100%;
 }
 .burger::before {
-  top: -8px;
+  top: calc(var(--spacing) * -2);
 }
 .burger::after {
-  top: 8px;
+  top: calc(var(--spacing) * 2);
 }
 .burger.burger-1, .burger.burger-1::before, .burger.burger-1::after {
   transition-timing-function: ease-in-out;
