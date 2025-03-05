@@ -81,7 +81,7 @@ main.site-main {
 }
 
 .site-width {
-    background-color: cornsilk;
+    /* background-color: cornsilk; */
     /* @apply flow-root; */
     /* @apply container; */
     /* @apply mx-auto; */
@@ -206,50 +206,50 @@ input {
 
 .entry-footer div::before,
 .edit_custom::before {
-    content: '';
-    width: 100%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    position: absolute;
-    border-top: 1px solid white;
-    /* border-bottom: 1px solid white; */
-    background-color: rgb(238, 48, 165);
-    top: 50%;
-    bottom: 0;
-    display: block;
-    z-index: 1;
+    @apply content-[''];
+    @apply w-full;
+    @apply left-0;
+    @apply right-0;
+    @apply h-[2px];
+    @apply absolute;
+    @apply border-t;
+    @apply border-solid;
+    @apply border-[#ffffff];
+    @apply bg-[#ee30a5];
+    @apply top-1/2;
+    @apply bottom-0;
+    @apply block;
+    @apply z-10;
 }
 
 .skip-link {
     @apply hidden;
 }
 
-.edit-link
- {
-    background-color: rgba(238, 48, 165, 0.454);
+.edit-link {
+    @apply bg-[#ee30a570];
     @apply p-1;
-    /* @apply border-white; */
     @apply border-2;
     @apply rounded-md;
     @apply inline-block;
     @apply float-right;
-    /* @apply my-8; */
     @apply absolute;
-    right: 0;
+    @apply right-0;
 }
 
 .edit-link:hover {
-    background-color: rgb(238, 48, 165);
+    @apply bg-[#ee30a5];
 }
 
 .edit-link a {
-    color: white;
-    display: block;
+    @apply text-[#ffffff];
+    @apply block;
+
 }
 
 .edit-link a:hover {
-    color: white;
+    @apply text-[#ffffff];
+    @apply no-underline;
 }
 
 /* ___________________________________________   widgets */
@@ -283,7 +283,7 @@ li article,
 .widget ul li.cat-item {
     @apply block;
     @apply w-max;
-    float: left;
+    @apply float-left;
 }
 
 /* ___________________________________________   typography */
@@ -318,9 +318,9 @@ ul.nav-menu {
 }
 
 pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    /* font-size: 15px; */
+    /* white-space: pre-wrap; */
+    @apply whitespace-pre-wrap;
+    @apply break-words;
 }
 
 /* ___________________________________________   main nav menu */
@@ -332,7 +332,6 @@ pre {
 
 .site-navigation {
     @apply relative;
-    /* z-index: 1000; */
     @apply z-50;
     @apply min-h-[3em];
 
@@ -343,47 +342,40 @@ pre {
     @apply m-0;
     @apply p-0;
     @apply list-none;
-    /* @apply px-8; */
 }
 
 .nav-menu ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    visibility: hidden;
+    @apply absolute;
+    @apply top-full;
+    @apply left-0;
+    @apply invisible;
 }
 
 .nav-menu > li {
-    position: relative; 
+    @apply relative;
 }
 
 .nav-menu li {
-    /* background-color: wheat; */
+
 }
 
-/**
-* No JS fallback
-*
-* Triggers menus on hover rather than click. Supports keyboard navigation in modern browsers.
-*/
 .nav-menu.no-js li:hover > ul {
-visibility: visible;
+    @apply visible;
 }
 .nav-menu.no-js li:focus-within > ul { /*[2]*/
-visibility: visible;
+    @apply visible;
 }
 
-/**
-* Open/Close Menu Behavior with JS
-*/
+
 .nav-menu ul[aria-hidden="false"] {
-visibility: visible;
+    @apply visible;
 }
 
-/* Prevent offscreen-submenus */
 .nav-menu .sub-menu--right {
-left: auto !important;
-right: 1em !important;
+/* left: auto !important;
+right: 1em !important; */
+    @apply left-auto;
+    @apply right-4;
 }
 
 .nav-contact {
@@ -391,20 +383,18 @@ right: 1em !important;
 }
 
 nav.toggled > .nav-menu {
-    /* background-color: red; */
-    display: block;
+    @apply block;
     @apply lg:flex;
     @apply pt-[3em];
 }
 
 nav > .nav-menu {
-    display: none;
+    @apply hidden;
     @apply lg:flex;
     @apply lg:gap-1;
     @apply clear-both;
 }
 
-/* General Link & Button Styles */
 .nav-menu a,
 .nav-menu > li > button,
 .nav-menu .page_item_has_children {
@@ -418,13 +408,13 @@ nav > .nav-menu {
 }
 
 .nav-menu .menu-item-has-children button {
-    /* padding-right: 2em; */
+
 }
 
 .nav-menu .menu-item,
 .nav-menu .menu-item button {
-    width: 100%;
-    display: block;
+    @apply w-full;
+    @apply block;
     @apply lg:flex;
     @apply text-right;
     @apply lg:text-center
@@ -432,136 +422,124 @@ nav > .nav-menu {
 
 .nav-menu a:hover,
 .nav-menu li.page_item_has_children:hover {
-/* background: pink; */
 }
 
 .nav-menu a:focus,
 .nav-menu li button:focus,
 .nav-menu .page_item_has_children :focus {
-/* outline: .125em dotted purple; */
-outline-offset: -.125em;
+    @apply outline-offset-[-.125em];
 }
 
-/* Top Level Items */
 .nav-menu > li {
-flex: 1 1 auto;
-display: flex;
-flex-wrap: wrap;
-@apply lg:max-w-fit;
-@apply p-0;
-@apply mt-0;
+    @apply flex-auto;
+    @apply flex;
+    @apply flex-wrap;
+    @apply lg:max-w-fit;
+    @apply p-0;
+    @apply mt-0;
 }
 
 .nav-menu > li > a,
 .nav-menu > li > button,
 .nav-menu > li.page_item_has_children  {
-display: block;
-flex-wrap: wrap;
-align-items: center;
-border: 0;
-font-size: inherit;
-line-height: 1.5;
-cursor: pointer;
-/* background-color: green; */
+    @apply block;
+    @apply flex-wrap;
+    @apply items-center;
+    @apply bottom-0;
+    @apply text-inherit;
+    @apply leading-6;
+    @apply cursor-pointer;
 }
 
 .nav-menu > li > button:hover {
-    cursor: pointer;
-    background: pink;
+    @apply cursor-pointer;
 }
 
 .nav-menu > li > button::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid rgb(0, 0, 0);
+    @apply content-[''];
     @apply right-4;
     @apply my-2;
+    @apply w-0;
+    @apply h-0;
+    @apply absolute;
+    @apply border-t-[10px];
+    @apply border-b-[10px];
+    @apply border-l-[10px];
+    @apply border-solid;
+    @apply border-t-transparent;
+    @apply border-b-transparent;
+    @apply border-l-[#000000];
+    @apply m-1;
 }
 
 .nav-menu > li > button {
-    position: relative;
+    @apply relative;
 }
 
 button[aria-expanded="true"]::after {
-    transform: rotate(90deg);
+    @apply rotate-90;
 }
 
-@media (min-width: 1024px) {
-    .nav-menu > li > a,
-    .nav-menu > li > button {
-    display: flex;
-    } 
-}
-
+.nav-menu > li > a,
+.nav-menu > li > button {
+    @apply lg:flex;
+} 
 
 .nav-menu [aria-expanded="true"] svg {
 /* transform: scaleY(-1); */
 }
 
 /* Submenu Styles */
-.nav-menu ul {
-    min-width: 100%;
-    margin-top: .25em;
-    padding: 0;
-    list-style: none;
-    background-color: #eee;
-    border-radius: 3px;
+.nav-menu ul.sub-menu {
+    @apply min-w-full;
+    @apply mt-1;
+    @apply p-0;
+    @apply list-none;
+    @apply bg-[#ffffff];
+    @apply rounded-md;
+    @apply mt-4;
 }
 
-/* Ensure no-js support works by covering the .25em margin-top gap between submenu and parent item with a pseudo-element that extends the "surface" of the submenu. If you don't care as much about no-js mode, you could also just set margin-top: 0 when .no-js is present.  */
-.nav-menu.no-js ul::before {
-position: absolute;
-display: block;
-content: "";
-width: 100%;
-height: .25em;
-top: -.25em;
+.nav-menu ul.sub-menu {
+    @apply mt-4;
 }
 
-/* Responsive Submenu Behavior */
-.nav-menu ul[aria-hidden="false"] {
-position: static;
-width: 100%;
-flex: 0 0 auto;
+.nav-menu.no-js ul.sub-menu::before {
+    @apply content-[''];
+    @apply absolute;
+    @apply block;
+    @apply w-full;
+    @apply h-1;
+    @apply -top-1;
 }
 
-@media (min-width: 1024px) {
-    .nav-menu li ul[aria-hidden="false"] {
-    position: absolute;
-    width: auto;
-    /* transform: translateY(0); */
-    opacity: 1;
-    /* left: 1em; */
-    margin-top: 1em;
-    }
-    .nav-menu li ul::before {
-        /* content: ''; */
-        border-right: 20px solid transparent;
-    border-left: 20px solid transparent;
-    border-bottom: 20px solid rgb(0, 0, 0);
-    position: absolute;
-    top: -20px;
-    }
+.nav-menu ul.sub-menu[aria-hidden="false"] {
+    @apply static;
+    @apply w-full;
+    @apply flex-auto;
+}
+
+.nav-menu ul.sub-menu[aria-hidden="false"] {
+    @apply lg:absolute;
+    @apply lg:w-auto;
+    @apply lg:opacity-100;
+}
+
+.nav-menu ul.sub-menu::before {
+    @apply lg:absolute;
+    @apply lg:-top-5;
 }
 
 /* Submenu Links */
-.nav-menu ul a {
-    display: block;
-    padding-top: .375em;
-    padding-bottom: .375em;
-}
-@media (min-width: 1024px) {
-    .nav-menu ul a {
-    padding: .375em 1em;
-    white-space: nowrap;
-    }
+.nav-menu ul.sub-menu a {
+    @apply block;
+    @apply pt-2;
+    @apply pb-2;
+    @apply lg:whitespace-nowrap;
+    @apply lg:p-2;
 }
 
-/* ___________________________________________   main nav menu */
+/* ___________________________________________   contact nav menu */
 
 .contact-nav ul {
     @apply flex;
@@ -576,7 +554,6 @@ flex: 0 0 auto;
 /* ___________________________________________   social links */
 
 .contact-details .site-width div {
-    /* @apply pt-4; */
     @apply md:flex;
     @apply justify-between;
 }
@@ -614,6 +591,7 @@ ul.social_links {
 
 .header-layout_one div {
     @apply lg:grid;
+
     .site-branding {
         @apply col-span-2;
         @apply flex;
@@ -654,85 +632,77 @@ ul.social_links {
 /* ___________________________________________   responsive button */
 
 .menu-toggle {
-    background: blue;
-    border: 0;
-    width: 56px;
-    height: 56px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    padding: 0;
-    opacity: 0.6;
-    /* scale: 0.7; */
-    border-radius: 8px;
-    transition: 0.25s;
-  }
+    @apply bg-[#0000ff];
+    @apply border-0;
+    @apply w-14;
+    @apply h-14;
+    @apply grid;
+    @apply place-items-center;
+    @apply cursor-pointer;
+    @apply p-0;
+    @apply opacity-60;
+    @apply rounded-md;
+}
 
   button.menu-toggle {
-    /* @apply block; */
     @apply lg:hidden;
-    /* @apply float-right; */
     @apply absolute;
     @apply top-0;
     @apply right-8;
-    /* @apply min-h-[3em]; */
 }
   
-  .menu-toggle {
-    opacity: 1;
-    /* background: #8f44fd; */
-  }
-  
-  .burger {
+.menu-toggle {
+    @apply opacity-100;
+}
+
+.burger {
     position: relative;
     width: 32px;
     border: 0;
-  }
-  
-  .burger,
-  .burger::before,
-  .burger::after {
+}
+
+.burger,
+.burger::before,
+.burger::after {
     display: block;
     border-radius: 2px;
     height: 2px;
     background: #f9f9f9;
     transition: 0.3s;
-  }
-  
-  .burger::before,
-  .burger::after {
+}
+
+.burger::before,
+.burger::after {
     content: "";
     position: absolute;
     left: 0;
     width: 100%;
-  }
-  
-  .burger::before {
+}
+
+.burger::before {
     top: -8px;
-  }
-  
-  .burger::after {
+}
+
+.burger::after {
     top: 8px;
-  }
-  
-  /* burger-1 */
-  
-  .burger.burger-1,
-  .burger.burger-1::before,
-  .burger.burger-1::after {
+}
+
+.burger.burger-1,
+.burger.burger-1::before,
+.burger.burger-1::after {
     transition-timing-function: ease-in-out;
     transition-duration: 0.2s;
-  }
-  
-  .toggled .burger.burger-1 {
+}
+
+.toggled .burger.burger-1 {
     transform: translateX(-50px);
     background: transparent;
-  }
-  
-  .toggled .burger.burger-1::before {
+}
+
+.toggled .burger.burger-1::before {
     transform: rotate(-45deg) translate(30px, 40px);
-  }
-  
-  .toggled .burger.burger-1::after {
+}
+
+.toggled .burger.burger-1::after {
     transform: rotate(45deg) translate(30px, -42px);
-  }
+}
