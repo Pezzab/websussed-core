@@ -71,6 +71,7 @@ function websussed_core_social_links() {
 		$facebook_htm = '';
         $linkedin_htm = '';
 		$youtube_htm = '';
+		$instagram_htm = '';
 
 		if ( ! empty( $twitter_acc ) ) : $twitter_htm = '<li><a target="_blank" href="' . $twitter_acc . '"><i class="fa-brands fa-square-x-twitter"></i></a></li>'; endif;
 
