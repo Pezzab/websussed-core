@@ -1,7 +1,7 @@
 {
     "@meta": {
         "version": "3.2.8.2",
-        "build": 1741096126
+        "build": 1741275122
     },
     "settings": {
         "types_only": "0",
@@ -755,9 +755,12 @@
                 {
                     "name": "more_fields",
                     "id": 1855,
-                    "label": "More Fields",
+                    "label": "Add custom content sections",
                     "description": "",
                     "weight": 0,
+                    "roles_allowed": "administrator",
+                    "meta_box_context": "normal",
+                    "meta_box_priority": "default",
                     "fields": [
                         {
                             "name": "before_content",
@@ -820,6 +823,39 @@
                             "pick_sync_taxonomy_hide_taxonomy_ui": "0",
                             "pick_post_status": "publish",
                             "pick_post_author": "0",
+                            "repeatable": "0",
+                            "repeatable_format": "default",
+                            "default_evaluate_tags": "0",
+                            "default_empty_fields": "0",
+                            "roles_allowed": "administrator",
+                            "revisions_revision_field": "0",
+                            "enable_conditional_logic": "0",
+                            "rest_pick_response": "array",
+                            "rest_pick_depth": "1",
+                            "required": "0"
+                        }
+                    ]
+                },
+                {
+                    "name": "page_layout",
+                    "id": 1929,
+                    "label": "Page layout",
+                    "description": "",
+                    "weight": 1,
+                    "roles_allowed": "administrator",
+                    "meta_box_context": "normal",
+                    "meta_box_priority": "default",
+                    "fields": [
+                        {
+                            "name": "override_content_width",
+                            "id": 1928,
+                            "label": "Override content width",
+                            "description": "Allows you to bypass site wide reading width limits for pages where you need multi column layouts etc",
+                            "weight": 0,
+                            "type": "boolean",
+                            "boolean_format_type": "checkbox",
+                            "boolean_yes_label": "Yes",
+                            "boolean_no_label": "No",
                             "repeatable": "0",
                             "repeatable_format": "default",
                             "default_evaluate_tags": "0",
