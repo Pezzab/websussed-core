@@ -706,3 +706,12 @@ ul.social_links {
 .toggled .burger.burger-1::after {
     transform: rotate(45deg) translate(30px, -42px);
 }
+
+/* ___________________________________________   overrride content width */
+
+.entry-header.max-content,
+.entry-content.max-content,
+.entry-footer.max-content {
+    @apply max-w-none;
+    @apply mx-0;
+}

@@ -13,12 +13,26 @@
 		websussed_core_custom_content( 'before_content' );
 			?>
 
+<?php
+
+	if ( $max_content = get_post_meta( get_the_ID(), 'override_content_width', true ) ) :
+
+		$max_content = ' max-content';
+
+	else :
+
+		$max_content = '';
+
+	endif;
+
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <div class="site-width">
 
 <?php if ( ! is_front_page() ) : ?>
 
-	<header class="entry-header">
+	<header class="entry-header<?php echo $max_content ; ?>">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
@@ -26,7 +40,7 @@
 
 	<?php websussed_core_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content<?php echo $max_content ; ?>"">
 		<?php
 		the_content();
 
@@ -40,7 +54,7 @@
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
+		<footer class="entry-footer<?php echo $max_content ; ?>">
 			<div>
 			<?php
 			edit_post_link(

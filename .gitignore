@@ -29,6 +29,8 @@ js/misc-scripts/*
 
 .stylelintrc.json
 
+.DS_Store
+
 composer.json
 
 .htaccess
