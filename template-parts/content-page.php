@@ -40,7 +40,7 @@
 
 	<?php websussed_core_post_thumbnail(); ?>
 
-	<div class="entry-content<?php echo $max_content ; ?>"">
+	<div class="entry-content<?php echo $max_content ; ?>">
 		<?php
 		the_content();
 

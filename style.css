@@ -546,7 +546,7 @@ textarea, input {
   position: relative;
   clear: both;
 }
-.entry-footer div::before, .edit_custom::before {
+.entry-footer .footer-edit::before, .edit_custom::before {
   --tw-content: '';
   content: var(--tw-content);
   width: 100%;

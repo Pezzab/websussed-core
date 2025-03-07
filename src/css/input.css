@@ -204,7 +204,7 @@ input {
     @apply relative;
     @apply clear-both;}
 
-.entry-footer div::before,
+.entry-footer .footer-edit::before,
 .edit_custom::before {
     @apply content-[''];
     @apply w-full;
