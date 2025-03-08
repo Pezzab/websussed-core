@@ -709,9 +709,13 @@ ul.social_links {
 
 /* ___________________________________________   override content width */
 
-/* .entry-header.max-content, */
+.entry-header.max-content,
 .entry-content.max-content,
 .entry-footer.max-content {
     @apply max-w-none;
+    @apply mx-0;
+}
+
+.entry-header.max-content > * {
     @apply mx-0;
 }

@@ -951,8 +951,11 @@ button.menu-toggle {
 .toggled .burger.burger-1::after {
   transform: rotate(45deg) translate(30px, -42px);
 }
-.entry-content.max-content, .entry-footer.max-content {
+.entry-header.max-content, .entry-content.max-content, .entry-footer.max-content {
   max-width: none;
+  margin-inline: calc(var(--spacing) * 0);
+}
+.entry-header.max-content > * {
   margin-inline: calc(var(--spacing) * 0);
 }
 @keyframes spin {
