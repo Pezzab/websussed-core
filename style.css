@@ -957,6 +957,7 @@ button.menu-toggle {
 }
 .entry-header.max-content > * {
   margin-inline: calc(var(--spacing) * 0);
+  width: 100%;
 }
 @keyframes spin {
   to {

@@ -718,4 +718,5 @@ ul.social_links {
 
 .entry-header.max-content > * {
     @apply mx-0;
+    @apply w-full;
 }
