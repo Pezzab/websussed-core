@@ -951,6 +951,9 @@ button.menu-toggle {
 .toggled .burger.burger-1::after {
   transform: rotate(45deg) translate(30px, -42px);
 }
+.wp-block-buttons {
+  display: flex;
+}
 .entry-header.max-content, .entry-content.max-content, .entry-footer.max-content {
   max-width: none;
   margin-inline: calc(var(--spacing) * 0);

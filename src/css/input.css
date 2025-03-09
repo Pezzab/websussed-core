@@ -707,6 +707,13 @@ ul.social_links {
     transform: rotate(45deg) translate(30px, -42px);
 }
 
+/* ___________________________________________   wp-block styles */
+
+.wp-block-buttons {
+    @apply flex;
+}
+
+
 /* ___________________________________________   override content width */
 
 .entry-header.max-content,
