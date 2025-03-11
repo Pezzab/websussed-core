@@ -162,8 +162,7 @@ a.post-thumbnail,
 .post-thumbnail,
 .post-thumbnail img,
 .entry-content p,
-.wp-block-image.aligncenter,
-p img {
+figure.wp-block-image.aligncenter {
     @apply m-8;
     @apply mx-auto;
 }
