@@ -525,19 +525,20 @@ a.post-thumbnail, .post-thumbnail, .post-thumbnail img, .entry-content p, figure
   margin: calc(var(--spacing) * 8);
   margin-inline: auto;
 }
-figure.alignleft, p .alignleft, p img .alignleft {
+figure.wp-block-image.alignleft img {
   float: left;
-  margin-block: calc(var(--spacing) * 8);
   margin-right: calc(var(--spacing) * 8);
 }
 figure.wp-block-image.alignright img {
   float: right;
-  margin-block: calc(var(--spacing) * 8);
   margin-left: calc(var(--spacing) * 8);
 }
 .entry-content img, .entry-content figure {
   max-width: 100%;
   margin-inline: auto;
+}
+.wp-block-image .aligncenter, .wp-block-image .alignleft, .wp-block-image .alignright, .wp-block-image.aligncenter, .wp-block-image.alignleft, .wp-block-image.alignright {
+  display: block;
 }
 textarea, input {
   width: 100%;
