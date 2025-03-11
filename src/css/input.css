@@ -184,8 +184,8 @@ p img.alignright {
     @apply ml-8;
 }
 
-img,
-figure {
+.entry-content img,
+.entry-content figure {
     @apply max-w-full;
     @apply mx-auto;
 }
