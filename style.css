@@ -530,7 +530,7 @@ figure.alignleft, p .alignleft, p img .alignleft {
   margin-block: calc(var(--spacing) * 8);
   margin-right: calc(var(--spacing) * 8);
 }
-p .alignright, .alignright, p img.alignright {
+.alignright img {
   float: right;
   margin-block: calc(var(--spacing) * 8);
   margin-left: calc(var(--spacing) * 8);
