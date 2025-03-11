@@ -176,7 +176,7 @@ p img .alignleft {
     @apply mr-8;
 }
 
-figure.wp-block-img.alignright img {
+figure.wp-block-image.alignright img {
     @apply float-right;
     @apply my-8;
     @apply ml-8;
