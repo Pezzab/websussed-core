@@ -65,6 +65,7 @@ function websussed_core_custom_content( $position ) {
 
 				$custom_html = '';
 				$custom_wysiwyg = '';
+				$custom_shortcode = '';
 
 					if ( $custom_position == 'global' ) :
 
@@ -82,11 +83,27 @@ function websussed_core_custom_content( $position ) {
 					$start_date 		= $pod->field( 'start_date' ) ;
 					$date_today 		= date('Y-m-d');
 
-					if ( $pod->exists() && $pod->field('custom_html') ) :
+
+					if ( $pod->exists() && $pod->field('add_shortcode') ) :
+
+						$add_shortcode = $pod->field( 'add_shortcode' );
+						$add_shortcode = '<div class="content_shortcode ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '">' . $add_shortcode . '</div>' ;
+					
+						$custom_shortcode_edit_button  = '';
+
+						if ( get_edit_post_link() ) :
+						$custom_shortcode_edit_button = '<div class="edit_custom"><div class="edit-link"><a target="_blank" href="' . get_edit_post_link( $custom_content_id ) . '">Edit</a></div></div>';
+						endif;
+
+						$custom_shortcode = '%1s%2s';
+						$custom_shortcode = sprintf( $custom_shortcode, $add_shortcode, $custom_shortcode_edit_button );
+
+					elseif ( $pod->exists() && $pod->field('custom_html') ) :
 
 						$custom_html_output = $pod->field( 'custom_html' );
+						// $custom_html_output = get_post_meta( $custom_content_id, 'custom_html' );
 						$custom_html_output = '<div class="content_html ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '"><div>' . $custom_html_output . '</div></div>' ;
-						
+					
 						$custom_html_edit_button  = '';
 
 						if ( get_edit_post_link() ) :
@@ -115,15 +132,18 @@ function websussed_core_custom_content( $position ) {
 
 					if ( ( $expiry_date == '0000-00-00' ) && ( $start_date == '0000-00-00' ) ) :
 					
-					echo $custom_html;
-					echo $custom_wysiwyg;
+						echo do_shortcode( $custom_shortcode );	
+						echo $custom_html;
+						echo $custom_wysiwyg;
 
 					elseif ( ( $expiry_date < $date_today ) && ( $expiry_date != '0000-00-00'  )) :
 
 					elseif ( $start_date <= $date_today ) :
-					
-					echo $custom_html;
-					echo $custom_wysiwyg;	
+
+						echo do_shortcode( $custom_shortcode );	
+						echo $custom_html;
+						echo $custom_wysiwyg;	
+
 					endif ;
 
 				}

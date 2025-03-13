@@ -11,7 +11,10 @@
 
 ?>
 
+
+
 <?php // get_sidebar();?>
+
 
 <?php 
 		websussed_core_custom_content( 'footer_custom_content' );
@@ -36,6 +39,9 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+
+
 
 </body>
 </html>

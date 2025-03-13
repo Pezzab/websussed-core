@@ -148,6 +148,10 @@ footer {
     @apply px-4;
  }
 
+ .site-footer .site-width > * {
+    @apply px-4;
+ }
+
  #breadcrumbs span {
     /* @apply block; */
  }
@@ -731,3 +735,11 @@ ul.social_links {
     @apply mx-0;
     @apply max-w-none;
 }
+
+
+
+
+
+
+
+

@@ -143,8 +143,16 @@ function websussed_core_scripts() {
 	wp_enqueue_style( 'websussed-core-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'websussed-core-style', 'rtl', 'replace' );
 
+
+	wp_enqueue_style( 'websussed-swiper', get_template_directory_uri() . '/src/js/swiper/swiper-bundle.css', array(), _S_VERSION );
+	wp_style_add_data( 'websussed-swiper', 'rtl', 'replace' );
+
+
 	wp_enqueue_script( 'websussed-core-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+
 	wp_enqueue_script( 'websussed-clicky', get_template_directory_uri() . '/src/js/clicky.js', array(), _S_VERSION, true );
+
+	wp_enqueue_script( 'websussed-swiper-defer', get_template_directory_uri() . '/src/js/swiper/swiper-bundle.min.js', array(), _S_VERSION );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -210,6 +218,14 @@ require get_template_directory() . '/inc/fontawesome_setup.php';
  */
 
  require get_template_directory() . '/inc/navigation-blocks.php';
+
+ /** 
+ * Adds adds sliders as functions
+ */
+
+ require get_template_directory() . '/inc/swiper-sliders.php';
+ 
+ 
 
 
 

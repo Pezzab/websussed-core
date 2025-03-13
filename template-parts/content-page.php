@@ -81,6 +81,10 @@
 </div><!-- .site-width -->
 </article><!-- #post-<?php the_ID(); ?> -->
 
+
 <?php 
 		websussed_core_custom_content( 'after_content' );
 			?>
+
+<?php // websussed_core_universal_slider() ?>
+
