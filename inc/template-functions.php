@@ -58,14 +58,18 @@ function websussed_core_custom_content( $position ) {
 				$custom_contents = $page_id->field( $position ) ;
 			endif ;
 
+	
 
 			if ( ! empty( $custom_contents ) ) { // check content
+
+			echo '<div class="' . $custom_position . '-' . $position .'">';
 
 				foreach ( $custom_contents as $custom_content ) {
 
 				$custom_html = '';
 				$custom_wysiwyg = '';
 				$custom_shortcode = '';
+				$custom_classes = '';
 
 					if ( $custom_position == 'global' ) :
 
@@ -82,12 +86,31 @@ function websussed_core_custom_content( $position ) {
 					$expiry_date 		= $pod->field( 'expiry_date' ) ;
 					$start_date 		= $pod->field( 'start_date' ) ;
 					$date_today 		= date('Y-m-d');
+					$custom_classes		= $pod->field( 'optional_classes' );
+					$custom_classes		= $custom_classes . ' ';
+
+					// $page_title			= get_the_title();
+
+					global $post;
+					$page_title	 = $post->post_name;
+
+					$feature_img = 'hello' ;
+
+					if ( get_post_meta( $custom_content_id, 'make_into_bg_img', true) && get_the_post_thumbnail_url( get_the_ID() ) ) :
+
+					$feature_img_size = get_post_meta( $custom_content_id, 'choose_featured_image_size', true) ;
+					
+					$feature_img = get_the_post_thumbnail_url( get_the_ID(), $feature_img_size ) ;
+					$feature_img = 'style="background-image: url(' . $feature_img . ');"' ;
+
+					endif ;
+
 
 
 					if ( $pod->exists() && $pod->field('add_shortcode') ) :
 
 						$add_shortcode = $pod->field( 'add_shortcode' );
-						$add_shortcode = '<div class="content_shortcode ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '">' . $add_shortcode . '</div>' ;
+						$add_shortcode = '<div class="' . $custom_classes . $position . ' ' . $page_title . ' content_shortcode" data-start="' . $start_date . '" data-end="' . $expiry_date . '">' . $add_shortcode . '</div>' ;
 					
 						$custom_shortcode_edit_button  = '';
 
@@ -101,8 +124,7 @@ function websussed_core_custom_content( $position ) {
 					elseif ( $pod->exists() && $pod->field('custom_html') ) :
 
 						$custom_html_output = $pod->field( 'custom_html' );
-						// $custom_html_output = get_post_meta( $custom_content_id, 'custom_html' );
-						$custom_html_output = '<div class="content_html ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '"><div>' . $custom_html_output . '</div></div>' ;
+						$custom_html_output = '<div class="' . $custom_classes . $position . ' ' . $page_title .' content_html" data-start="' . $start_date . '" data-end="' . $expiry_date . '" ' . $feature_img . '><div>' . $custom_html_output . '</div></div>' ;
 					
 						$custom_html_edit_button  = '';
 
@@ -116,7 +138,7 @@ function websussed_core_custom_content( $position ) {
 					elseif ( $pod->exists() && $pod->field('wysiwyg_content') ) :
 
 						$custom_wysiwyg_output = $pod->field( 'wysiwyg_content' );
-						$custom_wysiwyg_output = '<div class="content_wysiwyg ' . $position . '" data-start="' . $start_date . '" data-end="' . $expiry_date . '"><div class="site-width"><div>' . wpautop( $custom_wysiwyg_output ) . '</div></div></div>' ;
+						$custom_wysiwyg_output = '<div class="' . $custom_classes . $position . ' ' . $page_title . ' content_wysiwyg" data-start="' . $start_date . '" data-end="' . $expiry_date . '" ' . $feature_img . '><div class="site-width"><div>' . wpautop( $custom_wysiwyg_output ) . '</div></div>' ;
 
 						$custom_wysiwyg_edit_button = '';
 
@@ -146,8 +168,10 @@ function websussed_core_custom_content( $position ) {
 
 					endif ;
 
-				}
+		
 
+				}
+				echo '</div>';
 			} // close custom content check
 		} // close position check
 	endif; // end pods check

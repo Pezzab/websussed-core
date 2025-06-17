@@ -27,26 +27,20 @@ function websussed_core_main_nav() {
 
 if ( has_nav_menu( 'main' ) ) {
 
-    echo '<nav id="site-navigation" class="site-navigation">';
+    echo '<nav id="site-navigation" class="site-navigation"><button class="menu-toggle"><span class="burger burger-1"></span></button>';
 
-    // $main_toggle = esc_html_e( 'Primary Menu', 'websussed-core' );
-
-    // var_dump( $main_toggle );
-
-        echo ''.
+    echo ''.
 
         wp_nav_menu(
             array(
                 'theme_location' => 'main',
                 'menu_id'        => 'primary-menu',
                 'container' => 'ul',
-                'menu_class'	 => 'nav-menu no-js'
+                'menu_class'	 => 'nav-menu site-width no-js'
             )
         );
 
-    // echo '<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Primary Menu</button></nav><!-- #site-navigation -->';
-
-    echo '<button class="menu-toggle"><span class="burger burger-1"></span></button></nav><!-- #site-navigation -->';
+    echo '</nav><!-- #site-navigation -->';
 
     };
 }

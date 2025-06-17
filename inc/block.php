@@ -5,7 +5,7 @@ remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 
 add_action( 'wp_enqueue_scripts', function() {
   // https://github.com/WordPress/gutenberg/issues/36834
-//   wp_dequeue_style( 'wp-block-library' );
+  wp_dequeue_style( 'wp-block-library' );
   wp_dequeue_style( 'wp-block-library-theme' );
 
   // https://stackoverflow.com/a/74341697/278272

@@ -13,7 +13,6 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
-@plugin "@tailwindcss/typography";
 @import "tailwindcss/preflight.css" layer(base);
 /* @import "tailwindcss/utilities.css" layer(utilities); */
 
@@ -31,7 +30,6 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 /* ___________________________________________   site wrapper */
 
 body {
-    @apply prose-xl;
     @apply m-0;
 }
 
@@ -43,13 +41,25 @@ body {
 
 /* _____________________   header */
 
-.contact-details,
+/* .contact-details,
 header.site-header,
 .site-navigation,
-main > header {
-    @apply px-8;
+main > header, */
+.site-width {
+    @apply px-4;
     @apply pb-2;
     @apply pt-2;
+}
+
+.tel_nos,
+.social_links li {
+     @apply px-4;   
+     @apply my-2;
+}
+
+.tel_nos span {
+         @apply my-2;
+         @apply text-right;
 }
 
 nav.contact-nav {
@@ -84,7 +94,8 @@ main.site-main {
     /* background-color: cornsilk; */
     /* @apply flow-root; */
     /* @apply container; */
-    /* @apply mx-auto; */
+    @apply mx-auto;
+    @apply max-w-[1080px];
 }
 
 .site-header { @apply pt-8; }
@@ -99,9 +110,9 @@ article,
 .site-footer,
 .content_wysiwyg,
 .edit_custom {
-    @apply px-8;
+    /* @apply px-8;
     @apply pb-2;
-    @apply pt-2;
+    @apply pt-2; */
 }
 
 article,
@@ -113,8 +124,8 @@ main > header {
 
 .entry-content,
 .entry-footer {
-    @apply pb-2;
-    @apply pt-2; 
+    /* @apply pb-2;
+    @apply pt-2;  */
 }
 
 /* _____________________   site footer */ 
@@ -143,13 +154,17 @@ footer {
  .widget > *,
  .entry-footer > *,
  .content_wysiwyg .site-width > * {
-    @apply max-w-[870px];
+    /* @apply max-w-[870px]; */
     @apply mx-auto;
-    @apply px-4;
+    /* @apply px-4; */
+ }
+
+ .nav-menu.site-width {
+    @apply mx-auto;
  }
 
  .site-footer .site-width > * {
-    @apply px-4;
+    /* @apply px-4; */
  }
 
  #breadcrumbs span {
@@ -165,38 +180,16 @@ footer {
 a.post-thumbnail,
 .post-thumbnail,
 .post-thumbnail img,
-.entry-content p,
+article p,
 figure.wp-block-image.aligncenter {
-    @apply m-8;
+    /* @apply my-8; */
     @apply mx-auto;
 }
 
-figure.wp-block-image.alignleft img {
-    @apply float-left;
-    /* @apply my-8; */
-    @apply mr-8;
+p {
+    /* @apply mb-8; */
 }
 
-figure.wp-block-image.alignright img {
-    @apply float-right;
-    /* @apply my-8; */
-    @apply ml-8;
-}
-
-.entry-content img,
-.entry-content figure {
-    @apply max-w-full;
-    @apply mx-auto;
-}
-
-.wp-block-image .aligncenter,
-.wp-block-image .alignleft,
-.wp-block-image .alignright,
-.wp-block-image.aligncenter,
-.wp-block-image.alignleft,
-.wp-block-image.alignright {
-    @apply block;
-}
 
 /* ___________________________________________   forms */
 
@@ -209,12 +202,19 @@ input {
 
 .entry-footer div,
 .edit_custom {
+    /* @apply relative; */
+    @apply clear-both;
+    @apply h-12;
     @apply relative;
-    @apply clear-both;}
+    @apply z-10;
+    @apply p-2;
+    @apply flex;
+    @apply justify-end;
+}
 
 .entry-footer .footer-edit::before,
 .edit_custom::before {
-    @apply content-[''];
+    /* @apply content-['']; */
     @apply w-full;
     @apply left-0;
     @apply right-0;
@@ -228,6 +228,7 @@ input {
     @apply bottom-0;
     @apply block;
     @apply z-10;
+
 }
 
 .skip-link {
@@ -240,8 +241,8 @@ input {
     @apply border-2;
     @apply rounded-md;
     @apply inline-block;
-    @apply float-right;
-    @apply absolute;
+    /* @apply float-right; */
+    /* @apply absolute; */
     @apply right-0;
 }
 
@@ -342,14 +343,18 @@ pre {
     @apply relative;
     @apply z-50;
     @apply min-h-[3em];
-
+    @apply flex;
+    @apply overflow-visible;
+    @apply mb-2;
+    @apply lg:mb-0;
 }
 
-.nav-menu {
+ul.nav-menu {
     @apply justify-between;
     @apply m-0;
-    @apply p-0;
+    @apply lg:p-0;
     @apply list-none;
+        @apply w-full;
 }
 
 .nav-menu ul {
@@ -394,6 +399,7 @@ nav.toggled > .nav-menu {
     @apply block;
     @apply lg:flex;
     @apply pt-[3em];
+    @apply lg:pt-0;
 }
 
 nav > .nav-menu {
@@ -569,9 +575,10 @@ button[aria-expanded="true"]::after {
 ul.social_links {
     @apply flex;
     @apply gap-3;
-    @apply p-0;
+    @apply px-4;
     @apply m-0;
     @apply text-5xl;
+    @apply justify-end;
 
     li {
         @apply flex;
@@ -584,6 +591,10 @@ ul.social_links {
     }
 }
 
+.contact-details {
+    @apply min-h-16;
+}
+
 .tel_nos {
     @apply sm:flex;
     @apply gap-8;
@@ -591,8 +602,18 @@ ul.social_links {
 
 .tel_nos span {
     @apply flex;
-    @apply justify-start;
+    @apply justify-center;
     @apply flex-col;    
+}
+
+.tel_nos i {
+    @apply w-4;
+    @apply h-4;
+}
+
+.social_links i {
+    @apply w-11;
+    @apply h-12; 
 }
 
 /* ___________________________________________   custom layouts */
@@ -616,7 +637,7 @@ ul.social_links {
     }
 
     button.menu-toggle {
-        @apply right-0;
+        /* @apply right-0; */
     }
 }
 
@@ -634,7 +655,9 @@ ul.social_links {
     .contact-nav {
         @apply col-span-1;
     }
+    nav.site-navigation {
 
+    }
 }
 
 /* ___________________________________________   responsive button */
@@ -642,8 +665,8 @@ ul.social_links {
 .menu-toggle {
     @apply bg-[#000000];
     @apply border-0;
-    @apply w-14;
-    @apply h-14;
+    @apply min-h-[3em];
+    @apply min-w-[3em];
     @apply grid;
     @apply place-items-center;
     @apply cursor-pointer;
@@ -655,8 +678,8 @@ ul.social_links {
   button.menu-toggle {
     @apply lg:hidden;
     @apply absolute;
-    @apply top-0;
-    @apply right-8;
+    /* @apply top-0; */
+    @apply right-4;
 }
   
 .menu-toggle {
@@ -721,20 +744,124 @@ ul.social_links {
     @apply flex;
 }
 
+  .wp-block-buttons {
+    @apply inline-block;
+    @apply lg:flex;
+    width: 100%;
+    @apply !justify-start;
+}
+  
 
-/* ___________________________________________   override content width */
-
-.entry-header.max-content,
-.entry-content.max-content,
-.entry-footer.max-content {
-    @apply max-w-none;
-    @apply mx-0;
+.wp-block-button {
+    /* color: var(--color-white); */
+      display: block;
+      /* margin-inline: auto; */
+      /* padding: calc(var(--spacing) * 4); */
+ 
+      cursor: pointer;
+      @apply max-w-fit;
+      /* @apply lg:mx-auto; */
+      @apply m-8;
+      
 }
 
-.entry-header.max-content > * {
-    @apply mx-0;
-    @apply max-w-none;
+
+.wp-block-image.alignleft {
+    /* @apply xl:float-left; */
+    /* @apply my-8; */
+    /* @apply lg:mr-8; */
+    @apply lg:pr-16;
 }
+
+.wp-block-image.alignright {
+    /* @apply xl:float-right; */
+    /* @apply my-8; */
+    /* @apply max-w-full; */
+    /* @apply lg:ml-8; */
+        @apply lg:pl-16;
+}
+
+
+.wp-block-image.alignright img {
+    @apply max-w-full;
+    @apply mx-auto;
+}
+
+.wp-block-image .aligncenter,
+.wp-block-image .alignleft,
+.wp-block-image .alignright,
+.wp-block-image.aligncenter,
+.wp-block-image.alignleft,
+.wp-block-image.alignright {
+    @apply lg:inline-block;
+}
+
+.wp-block-columns {
+       @apply lg:!flex-nowrap;
+       @apply lg:!flex;
+
+
+}
+.wp-block-column {
+    @apply w-full;
+}
+
+/* ___________________________________________   slider */
+
+
+.swiper-slide .site-width {
+    @apply px-4;
+    @apply pb-2;
+    @apply pt-2;
+}
+
+.home .content_shortcode.before_content {
+    @apply relative;
+    @apply -z-0;
+  }
+  
+  .swiper .swiper-slide {
+    @apply h-[20em];
+  }
+  
+  .swiper-slide {
+    @apply bg-cover;
+  
+   
+    @apply bg-no-repeat;
+  
+      img {
+        @apply my-0;
+        /* opacity: 0; */
+  
+        width: 100%; /* or any custom size */
+        height: 100%; 
+        object-fit: contain;
+      }
+  
+  }
+  
+  .swiper-slide .site-width {
+    @apply flex;
+    @apply flex-col;
+    @apply content-center;
+    @apply justify-center;
+    @apply h-full;
+  }
+
+   .swiper-slide.showbgimg-no .site-width {
+    @apply flex;
+    @apply flex-row;
+    /* @apply content-center; */
+    /* @apply justify-center; */
+    @apply h-full;
+  }
+
+
+  
+  .swiper-slide.swiper-slide-active {
+  
+  }
 
 
 

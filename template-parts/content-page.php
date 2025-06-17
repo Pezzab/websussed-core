@@ -9,9 +9,6 @@
 
 ?>
 
-<?php 
-		websussed_core_custom_content( 'before_content' );
-			?>
 
 <?php
 
@@ -28,6 +25,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+<?php 
+		websussed_core_custom_content( 'before_content' );
+			?>
+
+
+	<?php websussed_core_post_thumbnail(); ?>
 <div class="site-width">
 
 <?php if ( ! is_front_page() ) : ?>
@@ -38,7 +42,6 @@
 
 <?php endif; ?>
 
-	<?php websussed_core_post_thumbnail(); ?>
 
 	<div class="entry-content<?php echo $max_content ; ?>">
 		<?php
@@ -79,12 +82,12 @@
 
 	<?php endif; ?>
 </div><!-- .site-width -->
-</article><!-- #post-<?php the_ID(); ?> -->
-
 
 <?php 
 		websussed_core_custom_content( 'after_content' );
 			?>
+</article><!-- #post-<?php the_ID(); ?> -->
+
 
 <?php // websussed_core_universal_slider() ?>
 
