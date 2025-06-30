@@ -124,7 +124,7 @@ function websussed_core_custom_content( $position ) {
 					elseif ( $pod->exists() && $pod->field('custom_html') ) :
 
 						$custom_html_output = $pod->field( 'custom_html' );
-						$custom_html_output = '<div class="' . $custom_classes . $position . ' ' . $page_title .' content_html" data-start="' . $start_date . '" data-end="' . $expiry_date . '" ' . $feature_img . '><div>' . $custom_html_output . '</div></div>' ;
+						$custom_html_output = '<div class="' . $custom_classes . $position . ' ' . $page_title .' content_html" data-start="' . $start_date . '" data-end="' . $expiry_date . '" ' . $feature_img . '>' . $custom_html_output . '</div>' ;
 					
 						$custom_html_edit_button  = '';
 
