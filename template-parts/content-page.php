@@ -26,12 +26,20 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+
+		<!-- // if ( has_post_thumbnail() && $custom_contents==false) :
+			// 	// the_post_thumbnail();
+			// 	$custom_contents = null;
+			// endif ; -->
+
 <?php 
-		websussed_core_custom_content( 'before_content' );
+websussed_core_custom_content( 'before_content' ) ;
 			?>
 
+<?php // var_dump( websussed_core_custom_content( 'before_content' ) ); ?>
 
-	<?php websussed_core_post_thumbnail(); ?>
+	<?php //websussed_core_post_thumbnail(); ?>
+	
 <div class="site-width">
 
 <?php if ( ! is_front_page() ) : ?>

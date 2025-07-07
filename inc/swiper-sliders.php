@@ -61,8 +61,8 @@ if ( is_plugin_active( 'pods/init.php' ) ) :
             $the_query->the_post();
 
                 $slider_count++;
-                $slider_img = get_the_post_thumbnail( get_the_ID(), 'full' ) ;
-                $slider_img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' ) ;
+                $slider_img = get_the_post_thumbnail( get_the_ID(), 'feature-full-width' ) ;
+                $slider_img_url = get_the_post_thumbnail_url( get_the_ID(), 'feature-full-width' ) ;
                 $slider_title = get_the_title();
 
 

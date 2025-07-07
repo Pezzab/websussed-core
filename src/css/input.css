@@ -51,6 +51,16 @@ main > header, */
     @apply pt-2;
 }
 
+.site-width > * {
+    @apply relative;
+}
+
+ .site-title {
+    @apply pb-2;
+    @apply pt-2;
+    @apply px-4;
+  }
+
 .tel_nos,
 .social_links li {
      @apply px-4;   
@@ -143,6 +153,7 @@ footer {
 /* _____________________   set reading width */ 
  
  main > header .site-width > *,
+ .site-width.archive header > *,
  article header > *,
  article .post-thumbnail > *,
  .entry-content,
@@ -170,6 +181,30 @@ footer {
  #breadcrumbs span {
     /* @apply block; */
  }
+
+/* ___________________________________________   adjust width for blog post display page */
+
+
+.blog {
+
+    main > header .site-width > *,
+    article header > *,
+    article .post-thumbnail > *,
+    .entry-content,
+    .entry-summary > *,
+    .post-navigation > *,
+    .posts-navigation > *,
+    #breadcrumbs .site-width div,
+    .comments-area > *,
+    .widget > *,
+    .entry-footer > *,
+    .content_wysiwyg .site-width > * {
+        /* @apply max-w-[870px]; */
+        @apply mx-auto;
+        /* @apply px-4; */
+    }
+
+}
  
 /* ___________________________________________   main content layout components */
 

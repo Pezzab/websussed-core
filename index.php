@@ -15,20 +15,48 @@
 get_header();
 ?>
 
+<?php
+
+
+	$page_id = get_queried_object_id();
+
+	if ( $max_content = get_post_meta( $page_id, 'override_content_width', true ) ) :
+
+		$max_content = ' max-content';
+
+	else :
+
+		$max_content = '';
+
+	endif;
+
+?>
+
 	<main id="primary" class="site-main">
+
+	<?php 
+		websussed_core_custom_content( 'before_content' );
+		?>
+
+	<div class="site-width archive">
+		<header class="entry-header <?php echo $max_content?>">
+			<?php
+
+				$title = wp_title( '', false, 'right' );
+
+				echo '<h1 class="entry-title">' . $title . '</h1>';
+
+				?>
+		</header>
+	</div>
+
+		<div class="blog-display grid grid-cols-3 gap-4 site-width">
 
 		<?php
 		if ( have_posts() ) :
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header id="blog">
-					<div class="site-width">
-					<h1 class="page-title"><?php single_post_title(); ?></h1>
-					</div>
-				</header>
-				<?php
-			endif;
+
+
 
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -51,6 +79,14 @@ get_header();
 
 		endif;
 		?>
+
+		</div>
+
+		<?php get_sidebar(); ?>
+
+		<?php 
+		websussed_core_custom_content( 'after_content' );
+			?>
 
 	</main><!-- #main -->
 

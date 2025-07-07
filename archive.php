@@ -12,6 +12,16 @@ get_header();
 
 	<main id="primary" class="site-main">
 
+	<?php 
+
+	// if ( is_singular() ) :
+
+		websussed_core_custom_content( 'before_content' );
+	
+	// endif ;
+	
+	?>
+
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">

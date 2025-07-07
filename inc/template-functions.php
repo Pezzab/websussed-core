@@ -43,26 +43,31 @@ function websussed_core_custom_content( $position ) {
 
 	if ( is_plugin_active( 'pods/init.php' ) ) :
 
-		if ( $position ) { // get position before or after editable content
+				if ( is_home() ) :
 
-			$page_id = get_the_ID() ;
+			$page_id = pods( 'page', get_queried_object_id() ) ; // on blog and archive pages content is outside post loop so set page id this way
+
+			else :
 
 			$page_id = pods( 'page', get_the_ID() ) ; // get page pod
 
-			$custom_position = 'main';
-
-			if ( get_option( 'global_content_' . $position ) ) :
-				$custom_contents = get_option( 'global_content_' . $position ) ;
-				$custom_position = 'global';
-			else :
-				$custom_contents = $page_id->field( $position ) ;
 			endif ;
 
-	
 
-			if ( ! empty( $custom_contents ) ) { // check content
+	if ( $position ) { // get position before or after editable content
 
-			echo '<div class="' . $custom_position . '-' . $position .'">';
+			$custom_position = 'main';
+
+				if ( get_option( 'global_content_' . $position ) ) :
+					$custom_contents = get_option( 'global_content_' . $position ) ;
+					$custom_position = 'global';
+				else :
+					$custom_contents = $page_id->field( $position ) ;
+				endif ;
+
+			if ( ! empty( $custom_contents ) ) : // check content
+
+				echo '<div class="' . $custom_position . '-' . $position .'">';
 
 				foreach ( $custom_contents as $custom_content ) {
 
@@ -100,7 +105,7 @@ function websussed_core_custom_content( $position ) {
 
 					$feature_img_size = get_post_meta( $custom_content_id, 'choose_featured_image_size', true) ;
 					
-					$feature_img = get_the_post_thumbnail_url( get_the_ID(), $feature_img_size ) ;
+					$feature_img = get_the_post_thumbnail_url( get_the_ID(), 'feature-full-width' ) ;
 					$feature_img = 'style="background-image: url(' . $feature_img . ');"' ;
 
 					endif ;
@@ -172,8 +177,37 @@ function websussed_core_custom_content( $position ) {
 
 				}
 				echo '</div>';
-			} // close custom content check
+			
+						
+			endif ; // close custom content check
+
+			if ( empty( $custom_contents ) && $position=='before_content') :
+
+				// $id = get_the_ID();
+				$id = get_queried_object_id();
+
+				if ( wp_get_attachment_url( get_post_thumbnail_id($id) ) ) :
+					
+					// get image url attached to page 
+					$feature_img_url = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'feature-full-width ' )[0]; 
+
+				else :
+
+					// if no featured image set get default blog image url
+					$default_feature_img_id = get_option( 'global_content_default_blog_feature_image') ; 
+
+					$feature_img_url = wp_get_attachment_image_url( $default_feature_img_id[0] , 'feature-full-width' );
+				 
+				endif ;
+
+				echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');"></div></div>';
+
+			endif ;
+
 		} // close position check
+
+	
+
 	endif; // end pods check
 }
 

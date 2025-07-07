@@ -10,6 +10,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+<?php 
+
+	if ( is_singular() ) :
+
+		websussed_core_custom_content( 'before_content' );
+	
+	endif ;
+	
+	?>
+
 	<div class="site-width">
 	<header class="entry-header">
 		<?php
@@ -24,13 +35,13 @@
 			<div class="entry-meta">
 				<?php
 				websussed_core_posted_on();
-				websussed_core_posted_by();
+				// websussed_core_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php websussed_core_post_thumbnail(); ?>
+	<?php // websussed_core_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<div>
@@ -61,7 +72,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php websussed_core_entry_footer(); ?>
+		<?php // websussed_core_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 	</div><!-- .site-width -->
 </article><!-- #post-<?php the_ID(); ?> -->

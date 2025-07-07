@@ -104,6 +104,10 @@ function websussed_core_setup() {
 }
 add_action( 'after_setup_theme', 'websussed_core_setup' );
 
+
+add_image_size( 'feature-full-width', 1792, 480, true ); // 220 pixels wide by 180 pixels tall, hard crop mode
+
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
