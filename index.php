@@ -34,32 +34,45 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-	<?php 
-		websussed_core_custom_content( 'before_content' );
-		?>
+<?php 
+
+		if ( ( is_home() ) && ( wp_get_attachment_url( get_post_thumbnail_id($page_id) ) ) ) :
+
+					// get image url attached to page 
+					$feature_img_url = wp_get_attachment_image_src( get_post_thumbnail_id($page_id), 'feature-full-width ' )[0]; 
+
+		elseif ( ( is_home() ) && ( get_option( 'global_content_default_blog_feature_image') ) ) :
+
+			// if no featured image set get default blog image url
+			$default_feature_img_id = get_option( 'global_content_default_blog_feature_image') ; 
+
+			$feature_img_url = wp_get_attachment_image_url( $default_feature_img_id[0] , 'feature-full-width' );
+			
+
+
+		endif ;
+
+		echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');">' . $page_id . '</div></div>';
+
+?>
+<?php websussed_core_yoast_breadcrumb() ?>
 
 	<div class="site-width archive">
 		<header class="entry-header <?php echo $max_content?>">
-			<?php
-
-				$title = wp_title( '', false, 'right' );
-
-				echo '<h1 class="entry-title">' . $title . '</h1>';
-
-				?>
+				<h1 class="entry-title"><?php single_post_title(); ?></h1>
 		</header>
 	</div>
-
+<?php // echo the_ID(); ?>
 		<div class="blog-display grid grid-cols-3 gap-4 site-width">
 
 		<?php
 		if ( have_posts() ) :
 
-
-
-
 			/* Start the Loop */
 			while ( have_posts() ) :
+
+			// echo the_ID();
+
 				the_post();
 
 				/*
@@ -71,8 +84,6 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
-
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
@@ -82,10 +93,10 @@ get_header();
 
 		</div>
 
-		<?php get_sidebar(); ?>
+		
 
 		<?php 
-		websussed_core_custom_content( 'after_content' );
+		echo websussed_core_custom_content( 'after_content' );
 			?>
 
 	</main><!-- #main -->

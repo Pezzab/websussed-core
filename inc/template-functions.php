@@ -43,15 +43,15 @@ function websussed_core_custom_content( $position ) {
 
 	if ( is_plugin_active( 'pods/init.php' ) ) :
 
-				if ( is_home() ) :
+			// if ( ! is_home() ) :
 
-			$page_id = pods( 'page', get_queried_object_id() ) ; // on blog and archive pages content is outside post loop so set page id this way
+			// $page_id = pods( 'page', get_queried_object_id() ) ; // on blog and archive pages content is outside post loop so set page id this way
 
-			else :
+			// else :
 
 			$page_id = pods( 'page', get_the_ID() ) ; // get page pod
 
-			endif ;
+			// endif ;
 
 
 	if ( $position ) { // get position before or after editable content
@@ -183,13 +183,13 @@ function websussed_core_custom_content( $position ) {
 
 			if ( empty( $custom_contents ) && $position=='before_content') :
 
-				// $id = get_the_ID();
-				$id = get_queried_object_id();
+				$page_id = get_the_ID();
+			 	// $page_id = get_queried_object_id();
 
-				if ( wp_get_attachment_url( get_post_thumbnail_id($id) ) ) :
+				if ( wp_get_attachment_url( get_post_thumbnail_id($page_id) ) ) :
 					
 					// get image url attached to page 
-					$feature_img_url = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'feature-full-width ' )[0]; 
+					$feature_img_url = wp_get_attachment_image_src( get_post_thumbnail_id($page_id), 'feature-full-width ' )[0]; 
 
 				else :
 
@@ -200,7 +200,7 @@ function websussed_core_custom_content( $position ) {
 				 
 				endif ;
 
-				echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');"></div></div>';
+				echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');">' . $page_id . '</div></div>';
 
 			endif ;
 

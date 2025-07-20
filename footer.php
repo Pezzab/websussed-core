@@ -14,14 +14,14 @@
 <?php // get_sidebar();?>
 
 <?php 
-		websussed_core_custom_content( 'footer_custom_content' );
+		echo websussed_core_custom_content( 'footer_custom_content' );
 			?>
 
 	<footer id="colophon" class="site-footer">
 
 		<div class="site-width">
 
-		<?php websussed_core_footer_nav() ; ?>
+		<?php websussed_core_footer_nav() ?>
 
 			<div class="site-info">
 				<div class="copyright">&#169; <?php echo date('Y');?>  <?php bloginfo();?> | 
@@ -32,6 +32,8 @@
 					?></div>
 				</a>
 			</div><!-- .site-info -->
+
+
 
 		</div><!-- .site-width -->
 

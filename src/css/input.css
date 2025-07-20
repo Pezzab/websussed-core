@@ -147,6 +147,16 @@ footer {
 .footer-nav {
     ul, li {
         @apply pl-0;
+        @apply text-4xl;
+    }
+
+    ul {
+        @apply flex;
+    }
+
+    li {
+        @apply p-2;
+        @apply pr-16;
     }
 }
 
@@ -160,7 +170,7 @@ footer {
  .entry-summary > *,
  .post-navigation > *,
  .posts-navigation > *,
- #breadcrumbs .site-width div,
+ /* #breadcrumbs .site-width div, */
  .comments-area > *,
  .widget > *,
  .entry-footer > *,
@@ -182,6 +192,10 @@ footer {
     /* @apply block; */
  }
 
+ .error-404 {
+    @apply text-center;
+ }
+
 /* ___________________________________________   adjust width for blog post display page */
 
 
@@ -194,7 +208,7 @@ footer {
     .entry-summary > *,
     .post-navigation > *,
     .posts-navigation > *,
-    #breadcrumbs .site-width div,
+    /* #breadcrumbs .site-width div, */
     .comments-area > *,
     .widget > *,
     .entry-footer > *,

@@ -16,7 +16,7 @@ get_header();
 
 	// if ( is_singular() ) :
 
-		websussed_core_custom_content( 'before_content' );
+		echo websussed_core_custom_content( 'before_content' );
 	
 	// endif ;
 	

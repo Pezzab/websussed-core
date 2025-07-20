@@ -117,7 +117,7 @@ if ( ! function_exists( 'websussed_core_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function websussed_core_post_thumbnail() {
+	function websussed_core_post_thumbnail( $img_size ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -126,7 +126,7 @@ if ( ! function_exists( 'websussed_core_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail( $img_size ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
@@ -134,7 +134,7 @@ if ( ! function_exists( 'websussed_core_post_thumbnail' ) ) :
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 				<?php
 					the_post_thumbnail(
-						'post-thumbnail',
+						$img_size,
 						array(
 							'alt' => the_title_attribute(
 								array(

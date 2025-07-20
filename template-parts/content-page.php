@@ -26,21 +26,19 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-
 		<!-- // if ( has_post_thumbnail() && $custom_contents==false) :
 			// 	// the_post_thumbnail();
 			// 	$custom_contents = null;
 			// endif ; -->
 
 <?php 
-websussed_core_custom_content( 'before_content' ) ;
-			?>
+		echo websussed_core_custom_content( 'before_content' ) ;
+?>
 
-<?php // var_dump( websussed_core_custom_content( 'before_content' ) ); ?>
 
-	<?php //websussed_core_post_thumbnail(); ?>
-	
+	<?php websussed_core_yoast_breadcrumb() ?>
 <div class="site-width">
+
 
 <?php if ( ! is_front_page() ) : ?>
 
@@ -92,7 +90,7 @@ websussed_core_custom_content( 'before_content' ) ;
 </div><!-- .site-width -->
 
 <?php 
-		websussed_core_custom_content( 'after_content' );
+		echo websussed_core_custom_content( 'after_content' );
 			?>
 </article><!-- #post-<?php the_ID(); ?> -->
 

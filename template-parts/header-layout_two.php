@@ -1,6 +1,6 @@
 <?php // header layout_one ?>
 
-<?php websussed_core_custom_content( 'header_custom_content' ) ; ?>
+<?php echo websussed_core_custom_content( 'header_custom_content' ) ; ?>
 
 <?php websussed_core_skip_link() ; ?>
 
