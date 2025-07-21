@@ -104,7 +104,7 @@ if ( is_plugin_active( 'pods/init.php' ) ) :
 
         if ( ( $slider_showlink == 'yes' ) && (! empty ( $slider_button_link[0] ) ) && (! empty ( $slider_button_text[0] ) )) :
 
-            $slider_content .= '<div><a href="' . $slider_button_link[0] . '"><button>' . $slider_button_text[0] . '</button></a></div>';
+            $slider_content .= '<div><button><a href="' . $slider_button_link[0] . '">' . $slider_button_text[0] . '</a></button></div>';
 
         endif ;
 
