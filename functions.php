@@ -145,6 +145,7 @@ function websussed_defer_parsing_of_js( $url ) {
     if ( is_user_logged_in() ) return $url; //don't break WP Admin
     if ( FALSE === strpos( $url, '.js' ) ) return $url;
     if ( strpos( $url, 'jquery.js' ) ) return $url;
+	if ( strpos( $url, 'swiper/swiper-bundle.min.js' ) ) return $url;
     return str_replace( ' src', ' defer src', $url );
 }
 add_filter( 'script_loader_tag', 'websussed_defer_parsing_of_js', 10 );
