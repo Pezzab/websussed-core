@@ -151,7 +151,7 @@ footer {
     }
 
     ul {
-        @apply flex;
+        @apply md:flex;
     }
 
     li {

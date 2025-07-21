@@ -332,7 +332,9 @@ footer {
     line-height: var(--tw-leading, var(--text-4xl--line-height));
   }
   ul {
-    display: flex;
+    @media (width >= 768px) {
+      display: flex;
+    }
   }
   li {
     padding: calc(var(--spacing) * 2);
