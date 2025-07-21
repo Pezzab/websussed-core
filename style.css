@@ -283,7 +283,6 @@ body {
 }
 .site-width > * {
   position: relative;
-  z-index: 10;
 }
 .site-title {
   padding-bottom: calc(var(--spacing) * 2);

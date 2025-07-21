@@ -53,7 +53,7 @@ main > header, */
 
 .site-width > * {
     @apply relative;
-    @apply z-10;
+    /* @apply z-10; */
 }
 
  .site-title {
