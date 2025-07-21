@@ -335,6 +335,7 @@ footer {
     @media (width >= 768px) {
       display: flex;
     }
+    padding-bottom: calc(var(--spacing) * 4);
   }
   li {
     padding: calc(var(--spacing) * 2);
@@ -349,6 +350,11 @@ main > header .site-width > *, .site-width.archive header > *, article header > 
 }
 .error-404 {
   text-align: center;
+}
+.site-info {
+  @media (width >= 768px) {
+    text-align: right;
+  }
 }
 .blog {
   main > header .site-width > *, article header > *, article .post-thumbnail > *, .entry-content, .entry-summary > *, .post-navigation > *, .posts-navigation > *,  .comments-area > *, .widget > *, .entry-footer > *, .content_wysiwyg .site-width > * {

@@ -152,6 +152,7 @@ footer {
 
     ul {
         @apply md:flex;
+        @apply pb-4;
     }
 
     li {
@@ -195,6 +196,10 @@ footer {
  .error-404 {
     @apply text-center;
  }
+
+.site-info {
+    @apply md:text-right;
+}
 
 /* ___________________________________________   adjust width for blog post display page */
 

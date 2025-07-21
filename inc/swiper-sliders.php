@@ -133,7 +133,7 @@ if ( is_plugin_active( 'pods/init.php' ) ) :
     endif ;
 
     if ( ( $slider_showscrollbar == 'yes' ) ) :
-        $slider_content .= '  <div class="swiper-scrollbar"></div></div>' ;
+        $slider_content .= '  <div class="swiper-scrollbar"></div>' ;
     endif ;
 
         wp_reset_postdata();
@@ -176,7 +176,7 @@ if ( is_plugin_active( 'pods/init.php' ) ) :
 
     $slider_content .= $script_content;
 
-return  $slider_content;
+return  $slider_content . '</div>'; // closing div comes after script
 
 endif ;
 
