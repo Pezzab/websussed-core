@@ -73,15 +73,15 @@ function websussed_core_social_links() {
 		$youtube_htm = '';
 		$instagram_htm = '';
 
-		if ( ! empty( $twitter_acc ) ) : $twitter_htm = '<li><a target="_blank" href="' . $twitter_acc . '"><i class="fa-brands fa-square-x-twitter"></i></a></li>'; endif;
+		if ( ! empty( $twitter_acc ) ) : $twitter_htm = '<li><a title="Follow ' . get_bloginfo() . ' on Twitter" target="_blank" href="' . $twitter_acc . '"><i class="fa-brands fa-square-x-twitter"></i></a></li>'; endif;
 
-		if ( ! empty( $instagram_acc ) ) : $instagram_htm = '<li><a target="_blank" href="' . $instagram_acc . '"><i class="fa-brands fa-square-instagram"></i></a></li>'; endif;
+		if ( ! empty( $instagram_acc ) ) : $instagram_htm = '<li><a title="Follow ' . get_bloginfo() . ' on Instagram" target="_blank" href="' . $instagram_acc . '"><i class="fa-brands fa-square-instagram"></i></a></li>'; endif;
 
-		if ( ! empty( $facebook_acc ) ) : $facebook_htm = '<li><a target="_blank" href="' . $facebook_acc . '"> <i class="fa-brands fa-square-facebook"></i></a></li>'; endif;
+		if ( ! empty( $facebook_acc ) ) : $facebook_htm = '<li><a title="Follow ' . get_bloginfo() . ' on Facebook"  target="_blank" href="' . $facebook_acc . '"> <i class="fa-brands fa-square-facebook"></i></a></li>'; endif;
 
-        if ( ! empty( $linkedin_acc ) ) : $linkedin_htm = '<li><a target="_blank" href="' . $linkedin_acc . '"><i class="fa-brands fa-linkedin"></i></a></li>'; endif;
+        if ( ! empty( $linkedin_acc ) ) : $linkedin_htm = '<li><a title="Follow ' . get_bloginfo() . ' on LinkedIn" target="_blank" href="' . $linkedin_acc . '"><i class="fa-brands fa-linkedin"></i></a></li>'; endif;
 
-		if ( ! empty( $youtube_acc ) ) : $youtube_htm = '<li><a target="_blank" href="' . $youtube_acc . '"><i class="fa-brands fa-square-youtube"></i></a></li>'; endif;
+		if ( ! empty( $youtube_acc ) ) : $youtube_htm = '<li><a title="Follow ' . get_bloginfo() . ' on YouTube" target="_blank" href="' . $youtube_acc . '"><i class="fa-brands fa-square-youtube"></i></a></li>'; endif;
 
 		echo '<ul class="social_links">' . $twitter_htm . $instagram_htm . $facebook_htm . $linkedin_htm . $youtube_htm . '</ul>';
 

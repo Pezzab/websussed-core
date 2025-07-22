@@ -55,20 +55,23 @@ get_header();
 		echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');">' . $page_id . '</div></div>';
 
 ?>
-<?php websussed_core_yoast_breadcrumb() ?>
+
+<?php // echo the_ID(); ?>
+
+
+		<?php
+		if ( have_posts() ) : ?>
+
+	<?php websussed_core_yoast_breadcrumb() ?>
 
 	<div class="site-width archive">
 		<header class="entry-header <?php echo $max_content?>">
 				<h1 class="entry-title"><?php single_post_title(); ?></h1>
 		</header>
 	</div>
-<?php // echo the_ID(); ?>
+
 		<div class="blog-display grid grid-cols-3 gap-4 site-width">
-
-		<?php
-		if ( have_posts() ) :
-
-			/* Start the Loop */
+		<?php 	/* Start the Loop */
 			while ( have_posts() ) :
 
 			// echo the_ID();
