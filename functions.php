@@ -161,7 +161,7 @@ function websussed_core_scripts() {
 	wp_enqueue_style( 'websussed-core-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'websussed-core-style', 'rtl', 'replace' );
 
-	// wp_enqueue_script( 'websussed-core-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'websussed-core-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'websussed-clicky', get_template_directory_uri() . '/src/js/clicky.js', array(), _S_VERSION, true );
 
