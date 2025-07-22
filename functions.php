@@ -278,3 +278,38 @@ add_filter( 'edit_post_link', function( $link, $post_id, $text )
     return $atts;
 }, 10, 4 ); // 4 so we get all arguments
 
+
+function dns_prefetch_to_preconnect( $urls, $relation_type ) {
+    global $wp_scripts, $wp_styles;
+
+    $unique_urls = array();
+
+    foreach ( array( $wp_scripts, $wp_styles ) as $dependencies ) {
+        if ( $dependencies instanceof WP_Dependencies && ! empty( $dependencies->queue ) ) {
+            foreach ( $dependencies->queue as $handle ) {
+                if ( ! isset( $dependencies->registered[ $handle ] ) ) {
+                    continue;
+                }
+
+                $dependency = $dependencies->registered[ $handle ];
+                $parsed     = wp_parse_url( $dependency->src );
+
+                if ( ! empty( $parsed['host'] ) && ! in_array( $parsed['host'], $unique_urls ) && $parsed['host'] !== $_SERVER['SERVER_NAME'] ) {
+                    $unique_urls[] = $parsed['scheme'] . '://' . $parsed['host'];
+                }
+            }
+        }
+    }
+
+    if ( 'dns-prefetch' === $relation_type ) {
+        $urls = [];
+    }
+
+    if ( 'preconnect' === $relation_type ) {
+        $urls = $unique_urls;
+    }
+
+    return $urls;
+}
+add_filter( 'wp_resource_hints', 'dns_prefetch_to_preconnect', 0, 2 );
+
