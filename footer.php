@@ -25,12 +25,13 @@
 
 			<div class="site-info">
 				<div class="copyright">&#169; <?php echo date('Y');?>  <?php bloginfo();?> | 
-				<a title="Get your business online with Websussed WordPress development" href="<?php echo esc_url( __( 'https://websussed.co.uk/', 'websussed-core' ) ); ?>">
-					<?php
-					/* translators: %s: CMS name, i.e. WordPress. */
-					printf( esc_html__( 'Hand built by %s', 'websussed-core' ), 'WebSussed' );
-					?></div>
-				</a>
+					<a title="Get your business online with Websussed WordPress development" href="<?php echo esc_url( __( 'https://websussed.co.uk/', 'websussed-core' ) ); ?>">
+						<?php
+						/* translators: %s: CMS name, i.e. WordPress. */
+						printf( esc_html__( 'Hand built by %s', 'websussed-core' ), 'WebSussed' );
+						?>
+					</a>
+				</div>
 			</div><!-- .site-info -->
 
 
