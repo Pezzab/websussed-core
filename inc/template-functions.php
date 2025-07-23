@@ -220,7 +220,7 @@ function websussed_core_hero() { ?>
 
 			<div id="hero" class="outer">
 
-				<?php if ( ! is_front_page() && ! is_home() ) : ?>	
+				<?php if ( ! is_front_page() ) : ?>	
 
 						<header class="entry-header inner">
 
@@ -317,7 +317,7 @@ function websussed_core_site_branding() {?>
 
 function websussed_core_yoast_breadcrumb(){
 
-	if ( function_exists('yoast_breadcrumb') && ! is_front_page() && ! is_home() ) {
+	if ( function_exists('yoast_breadcrumb') && ! is_front_page() ) {
 	yoast_breadcrumb( '<div id="breadcrumbs"><div class="site-width"><div>','</div></div></div>' );
 	}
 

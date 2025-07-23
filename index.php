@@ -62,7 +62,7 @@ get_header();
 		<?php
 		if ( have_posts() ) : ?>
 
-	<?php websussed_core_yoast_breadcrumb() ?>
+	<?php websussed_core_yoast_breadcrumb() ; ?>
 
 	<div class="site-width archive">
 		<header class="entry-header <?php echo $max_content?>">
