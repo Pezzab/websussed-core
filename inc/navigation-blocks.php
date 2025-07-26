@@ -27,7 +27,7 @@ function websussed_core_main_nav() {
 
 if ( has_nav_menu( 'main' ) ) {
 
-    echo '<nav id="site-navigation" class="site-navigation"><button title="Main site menu" class="menu-toggle"><span class="burger burger-1"></span></button>';
+    echo '<nav id="site-navigation" class="site-navigation site-width"><button title="Main site menu" class="menu-toggle"><span class="burger burger-1"></span></button>';
 
     echo ''.
 

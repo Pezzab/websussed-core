@@ -70,7 +70,7 @@ get_header();
 		</header>
 	</div>
 
-		<div class="blog-display grid grid-cols-3 gap-4 site-width">
+		<div class="blog-display lg:grid grid-cols-3 gap-4 site-width">
 		<?php 	/* Start the Loop */
 			while ( have_posts() ) :
 

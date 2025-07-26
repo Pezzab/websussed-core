@@ -17,6 +17,5 @@
 	</div>
 	<?php websussed_core_main_nav() ; ?>
 	</header><!-- #masthead -->
-<?php websussed_core_yoast_breadcrumb() ?>
 
 	

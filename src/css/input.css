@@ -59,7 +59,7 @@ main > header, */
  .site-title {
     @apply pb-2;
     @apply pt-2;
-    @apply px-4;
+    /* @apply px-4; */
   }
 
 .tel_nos,
@@ -259,10 +259,10 @@ input {
 .edit_custom {
     /* @apply relative; */
     @apply clear-both;
-    @apply h-12;
+    @apply h-0;
     @apply relative;
     @apply z-10;
-    @apply p-2;
+    /* @apply p-2; */
     @apply flex;
     @apply justify-end;
 }
@@ -296,6 +296,10 @@ input {
     @apply border-2;
     @apply rounded-md;
     @apply inline-block;
+    @apply h-fit;
+    @apply mr-4;
+    @apply absolute;
+    @apply bottom-0;
     /* @apply float-right; */
     /* @apply absolute; */
     @apply right-0;
@@ -623,14 +627,14 @@ button[aria-expanded="true"]::after {
 /* ___________________________________________   social links */
 
 .contact-details .site-width div {
-    @apply md:flex;
+    @apply flex;
     @apply justify-between;
 }
 
 ul.social_links {
     @apply flex;
     @apply gap-3;
-    @apply px-4;
+    /* @apply px-4; */
     @apply m-0;
     @apply text-5xl;
     @apply justify-end;
@@ -651,14 +655,16 @@ ul.social_links {
 }
 
 .tel_nos {
-    @apply sm:flex;
-    @apply gap-8;
+    @apply flex;
+    @apply sm:gap-8;
+        @apply flex-col;    
+        @apply sm:flex-row;
 }
 
 .tel_nos span {
     @apply flex;
-    @apply justify-center;
-    @apply flex-col;    
+    /* @apply justify-center; */
+    /* @apply flex-col;     */
 }
 
 .tel_nos i {
@@ -666,15 +672,24 @@ ul.social_links {
     @apply h-4;
 }
 
-.social_links i {
+.social_links {
+a {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+i {
     @apply w-11;
     @apply h-12; 
 }
+}
+
 
 /* ___________________________________________   custom layouts */
 
 .header-layout_one div {
-    @apply lg:grid;
+    /* @apply lg:grid; */
 
     .site-branding {
         @apply col-span-2;
@@ -701,7 +716,7 @@ ul.social_links {
     @apply grid-cols-2;
 
     .site-branding {
-        @apply col-span-1;
+        @apply col-span-2;
         @apply flex;
         @apply justify-center;
         @apply lg:justify-normal;
