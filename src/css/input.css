@@ -405,6 +405,7 @@ pre {
     @apply overflow-visible;
     @apply mb-2;
     @apply lg:mb-0;
+    @apply w-full;
 }
 
 ul.nav-menu {

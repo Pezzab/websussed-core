@@ -450,6 +450,7 @@ pre {
   @media (width >= 1024px) {
     margin-bottom: calc(var(--spacing) * 0);
   }
+  width: 100%;
 }
 ul.nav-menu {
   justify-content: space-between;
