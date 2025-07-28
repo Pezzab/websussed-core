@@ -191,9 +191,10 @@ function websussed_core_custom_content( $position ) {
 					// get image url attached to page 
 					$feature_img_url = wp_get_attachment_image_src( get_post_thumbnail_id($page_id), 'feature-full-width ' )[0]; 
 
-				elseif ( $default_feature_img_id = get_option( 'global_content_default_blog_feature_image')  ) :
+				else :
 
 					// if no featured image set get default blog image url
+					$default_feature_img_id = get_option( 'global_content_default_blog_feature_image') ; 
 
 					$feature_img_url = wp_get_attachment_image_url( $default_feature_img_id[0] , 'feature-full-width' );
 				 
