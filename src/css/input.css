@@ -45,11 +45,14 @@ body {
 header.site-header,
 .site-navigation,
 main > header, */
-.site-width {
+.site-width aside {
     @apply px-4;
     @apply pb-2;
     @apply pt-2;
+    @apply mx-auto;
+    @apply max-w-[1080px];
 }
+
 
 .site-width > * {
     @apply relative;
@@ -99,13 +102,6 @@ header.site-header {
 
 main.site-main {
     
-}
-
-.site-width,
-aside {
-
-    @apply mx-auto;
-    @apply max-w-[1080px];
 }
 
 /* .site-header { @apply pt-8; } */
