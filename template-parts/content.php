@@ -20,7 +20,7 @@
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
-		elseif ( is_archive() ) ;
+		elseif ( is_archive() ) :
 
 		echo 'hello';
 
