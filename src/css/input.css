@@ -109,8 +109,8 @@ main.site-main {
     @apply max-w-[1080px];
 }
 
-.site-header { @apply pt-8; }
-.site-footer { @apply pb-8; }
+/* .site-header { @apply pt-8; } */
+/* .site-footer { @apply pb-8; } */
 
 #breadcrumbs,
 article,
@@ -712,8 +712,8 @@ i {
 }
 
 .header-layout_two div {
-    @apply lg:grid;
-    @apply grid-cols-2;
+    /* @apply lg:grid;
+    @apply grid-cols-2; */
 
     .site-branding {
         @apply col-span-2;

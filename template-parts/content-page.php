@@ -65,28 +65,29 @@
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer<?php echo $max_content ; ?>">
 			<div>
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'websussed-core' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				),
-				'<span class="edit-link bg-fuchsia-500 p-1 border-white border-2 rounded-md inline-block text-white">',
-				'</span>'
-			);
-			?>
+	
 			</div>
 		</footer><!-- .entry-footer -->
 
 	<?php endif; ?>
+			<?php
+				edit_post_link(
+					sprintf(
+						wp_kses(
+							/* translators: %s: Name of current post. Only visible to screen readers */
+							__( 'Edit <span class="screen-reader-text">%s</span>', 'websussed-core' ),
+							array(
+								'span' => array(
+									'class' => array(),
+								),
+							)
+						),
+						wp_kses_post( get_the_title() )
+					),
+					'<span class="edit-link bg-fuchsia-500 p-1 border-white border-2 rounded-md inline-block text-white">',
+					'</span>'
+				);
+			?>
 </div><!-- .site-width -->
 
 <?php 

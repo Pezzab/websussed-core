@@ -8,14 +8,15 @@
 
 	<header id="masthead" class="site-header header-layout_two">
 
-	<div class="site-width">
+		<div class="site-width grid">
 
-	<?php websussed_core_site_branding() ; ?>
-	<?php websussed_core_contact_nav() ; ?>
+			<?php websussed_core_site_branding() ; ?>
+			<?php websussed_core_contact_nav() ; ?>
 
-
-	</div>
-	<?php websussed_core_main_nav() ; ?>
+		</div>
+	<div class="nav-wrap"><?php websussed_core_main_nav() ; ?></div>
 	</header><!-- #masthead -->
+
+
 
 	
