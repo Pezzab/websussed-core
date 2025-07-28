@@ -45,7 +45,8 @@ body {
 header.site-header,
 .site-navigation,
 main > header, */
-.site-width aside {
+.site-width,
+aside {
     @apply px-4;
     @apply pb-2;
     @apply pt-2;
