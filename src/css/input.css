@@ -399,8 +399,9 @@ pre {
     @apply relative;
     @apply z-50;
     @apply min-h-[3em];
-    @apply flex;
+    /* @apply flex; */
     @apply justify-end;
+    @apply flex-col;
     @apply overflow-visible;
     @apply mb-2;
     @apply lg:mb-0;
@@ -455,7 +456,7 @@ right: 1em !important; */
 nav.toggled > .nav-menu {
     @apply block;
     @apply lg:flex;
-    @apply pt-[3em];
+    @apply pt-[2em];
     @apply lg:pt-0;
 }
 
@@ -706,6 +707,9 @@ i {
 
     button.menu-toggle {
         /* @apply right-0; */
+        @apply float-right;
+        @apply max-w-[3rem];
+        @apply min-h-[3rem];
     }
 }
 
