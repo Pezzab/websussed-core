@@ -199,7 +199,7 @@ function websussed_core_custom_content( $position ) {
 				 
 				endif ;
 
-				echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');">' . $page_id . '</div></div>';
+				echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');"></div></div>';
 
 			endif ;
 
