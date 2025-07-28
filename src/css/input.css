@@ -102,7 +102,7 @@ main.site-main {
 }
 
 .site-width,
-aside section {
+aside {
 
     @apply mx-auto;
     @apply max-w-[1080px];

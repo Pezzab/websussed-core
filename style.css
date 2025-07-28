@@ -311,7 +311,7 @@ header.site-header {
     margin: calc(var(--spacing) * 0);
   }
 }
-.site-width, aside section {
+.site-width, aside {
   margin-inline: auto;
   max-width: 1080px;
 }
