@@ -32,6 +32,8 @@ get_header();
 
 <?php 
 
+		$feature_img_url = '';
+
 		if ( ( is_home() ) && ( wp_get_attachment_url( get_post_thumbnail_id($page_id) ) ) ) :
 
 			// get image url attached to page 
