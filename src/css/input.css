@@ -101,10 +101,9 @@ main.site-main {
     
 }
 
-.site-width {
-    /* background-color: cornsilk; */
-    /* @apply flow-root; */
-    /* @apply container; */
+.site-width,
+aside section {
+
     @apply mx-auto;
     @apply max-w-[1080px];
 }
