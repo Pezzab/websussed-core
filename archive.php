@@ -32,7 +32,7 @@ get_header();
 
 <?php 
 
-		$feature_img_url = '';
+
 
 		if ( ( is_home() ) && ( wp_get_attachment_url( get_post_thumbnail_id($page_id) ) ) ) :
 
@@ -48,7 +48,7 @@ get_header();
 			
 		endif ;
 
-		echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');">' . $page_id . '</div></div>';
+		echo '<div class="main-before_content"><div class="before_content" style="background-image: url('. $feature_img_url .');"></div></div>';
 
 ?>
 

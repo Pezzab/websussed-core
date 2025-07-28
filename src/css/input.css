@@ -46,6 +46,7 @@ header.site-header,
 .site-navigation,
 main > header, */
 .site-width,
+.comment-respond,
 aside {
     @apply px-4;
     @apply pb-2;
