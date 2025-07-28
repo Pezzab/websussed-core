@@ -67,7 +67,6 @@
 			<div>
 	
 			</div>
-		</footer><!-- .entry-footer -->
 
 	<?php endif; ?>
 			<?php
@@ -88,6 +87,8 @@
 					'</span>'
 				);
 			?>
+
+			</footer><!-- .entry-footer -->
 </div><!-- .site-width -->
 
 <?php 

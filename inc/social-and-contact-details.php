@@ -21,7 +21,9 @@ function websussed_core_telephone_nos() {
 
 		if ( ! empty( $landline ) ) : $landline_htm = '<span><a class="tel_link" href="tel:' . $landline_nosp . '"><i class="fa-solid fa-phone"></i>' . $landline . '</a></span>'; endif;
 
-		echo '<div class="tel_nos">' . $mobile_htm . $landline_htm . '</div>';
+		$tel_nos = '<div class="tel_nos">' . $mobile_htm . $landline_htm . '</div>';
+
+		return $tel_nos ;
 
 	endif;
 
@@ -83,7 +85,9 @@ function websussed_core_social_links() {
 
 		if ( ! empty( $youtube_acc ) ) : $youtube_htm = '<li><a title="Follow ' . get_bloginfo() . ' on YouTube" target="_blank" href="' . $youtube_acc . '"><i class="fa-brands fa-square-youtube"></i></a></li>'; endif;
 
-		echo '<ul class="social_links">' . $twitter_htm . $instagram_htm . $facebook_htm . $linkedin_htm . $youtube_htm . '</ul>';
+		$social_links = '<ul class="social_links">' . $twitter_htm . $instagram_htm . $facebook_htm . $linkedin_htm . $youtube_htm . '</ul>';
+
+		return $social_links ;
 
 	endif;
 

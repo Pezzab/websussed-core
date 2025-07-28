@@ -268,14 +268,18 @@ function websussed_core_skip_link() { ?>
 
 function websussed_core_contact_links(){ ?>
 
-	<div class="contact-details">
+<?php if ( websussed_core_social_links() ||  websussed_core_telephone_nos() ) : ?>
+
+	<div class="contact-details"> 
 		<div class="site-width">
 			<div>
-		<?php websussed_core_social_links(); ?>
-		<?php websussed_core_telephone_nos(); ?>
+		<?php echo websussed_core_social_links(); ?>
+		<?php echo websussed_core_telephone_nos(); ?>
 			</div>
 		</div>
 	</div>
+
+<?php endif ; ?>
 
 <?php }
 
