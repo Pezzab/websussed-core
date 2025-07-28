@@ -400,6 +400,7 @@ pre {
     @apply z-50;
     @apply min-h-[3em];
     @apply flex;
+    @apply justify-end;
     @apply overflow-visible;
     @apply mb-2;
     @apply lg:mb-0;
@@ -743,10 +744,10 @@ i {
 }
 
   button.menu-toggle {
-    @apply lg:hidden;
-    @apply absolute;
+    /* @apply lg:hidden; */
+    /* @apply absolute; */
     /* @apply top-0; */
-    @apply right-4;
+    /* @apply right-4; */
 }
   
 .menu-toggle {
