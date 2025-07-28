@@ -10,10 +10,13 @@
 ?>
 <article>
 <section class="no-results not-found">
+	<div class="site-width">
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'websussed-core' ); ?></h1>
 	</header><!-- .page-header -->
-
+	</div><!-- .site-width -->
+	
+	<div class="site-width">
 	<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
@@ -48,5 +51,6 @@
 		endif;
 		?>
 	</div><!-- .page-content -->
+	</div><!-- .site-width -->
 </section><!-- .no-results -->
 </article>
