@@ -714,11 +714,11 @@ ul.social_links {
     grid-column: span 3 / span 3;
     padding-inline: calc(var(--spacing) * 0);
   }
-  button.menu-toggle {
-    float: right;
-    max-width: 3rem;
-    min-height: 3rem;
-  }
+}
+button.menu-toggle {
+  float: right;
+  max-width: 3rem;
+  min-height: 3rem;
 }
 .header-layout_two div {
   .site-branding {

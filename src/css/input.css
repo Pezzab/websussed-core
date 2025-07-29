@@ -705,13 +705,13 @@ i {
         @apply col-span-3;
         @apply px-0;
     }
+}
 
-    button.menu-toggle {
-        /* @apply right-0; */
-        @apply float-right;
-        @apply max-w-[3rem];
-        @apply min-h-[3rem];
-    }
+button.menu-toggle {
+    /* @apply right-0; */
+    @apply float-right;
+    @apply max-w-[3rem];
+    @apply min-h-[3rem];
 }
 
 .header-layout_two div {
