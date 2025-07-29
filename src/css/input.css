@@ -406,6 +406,8 @@ pre {
     @apply mb-2;
     @apply lg:mb-0;
     @apply w-full;
+    @apply flex;
+    @apply justify-center;
 }
 
 ul.nav-menu {
@@ -710,8 +712,8 @@ i {
 button.menu-toggle {
     /* @apply right-0; */
     @apply float-right;
-    @apply max-w-[3rem];
-    @apply min-h-[3rem];
+    /* @apply max-w-[3rem];
+    @apply min-h-[3rem]; */
 }
 
 .header-layout_two div {
