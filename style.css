@@ -451,8 +451,6 @@ pre {
     margin-bottom: calc(var(--spacing) * 0);
   }
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 ul.nav-menu {
   justify-content: space-between;
@@ -719,6 +717,8 @@ ul.social_links {
 }
 button.menu-toggle {
   float: right;
+  max-width: 3rem;
+  min-height: 3rem;
 }
 .header-layout_two div {
   .site-branding {
