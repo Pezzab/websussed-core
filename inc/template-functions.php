@@ -185,7 +185,7 @@ function websussed_core_custom_content( $position ) {
 
 				$page_id = get_the_ID();
 			 	// $page_id = get_queried_object_id();
-
+				$feature_img_url = '';
 				if ( wp_get_attachment_url( get_post_thumbnail_id($page_id) ) ) :
 					
 					// get image url attached to page 
