@@ -260,7 +260,7 @@ add_filter( 'edit_post_link', function( $link, $post_id, $text )
  * Switch off unwanted block editor features
  */
 
- require get_template_directory() . '/inc/block.php';
+//  require get_template_directory() . '/inc/block.php';
 
  add_filter( 'nav_menu_link_attributes', function ( $atts, $item, $args, $depth ) {
 
