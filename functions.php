@@ -148,7 +148,7 @@ function websussed_defer_parsing_of_js( $url ) {
 	if ( strpos( $url, 'swiper/swiper-bundle.min.js' ) ) return $url;
     return str_replace( ' src', ' defer src', $url );
 }
-// add_filter( 'script_loader_tag', 'websussed_defer_parsing_of_js', 10 );
+add_filter( 'script_loader_tag', 'websussed_defer_parsing_of_js', 10 );
 
 /**
  * Enqueue scripts and styles.
@@ -171,7 +171,7 @@ function websussed_core_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-// add_action( 'wp_enqueue_scripts', 'websussed_core_scripts' );
+add_action( 'wp_enqueue_scripts', 'websussed_core_scripts' );
 
 function websussed_core_inline_style(){
 echo '<style id="websussed-core-inline-css">
@@ -242,7 +242,7 @@ require get_template_directory() . '/inc/fontawesome_setup.php';
  * Switch off unwanted block editor features
  */
 
-//  require get_template_directory() . '/inc/block.php';
+ require get_template_directory() . '/inc/block.php';
  
  
 
