@@ -678,25 +678,6 @@ i {
 
 /* ___________________________________________   custom layouts */
 
-.header-layout_one div {
-    /* @apply lg:grid; */
-
-    .site-branding {
-        @apply col-span-2;
-        @apply flex;
-        @apply justify-center;
-        @apply lg:justify-normal;
-        @apply flex-col;
-    }
-    .contact-nav {
-        @apply col-span-1;
-    }
-    .site-navigation {
-        @apply col-span-3;
-        @apply px-0;
-    }
-}
-
 button.menu-toggle {
     /* @apply right-0; */
     @apply float-right;
@@ -704,24 +685,6 @@ button.menu-toggle {
     @apply min-h-[3rem];
 }
 
-.header-layout_two div {
-    /* @apply lg:grid;
-    @apply grid-cols-2; */
-
-    .site-branding {
-        @apply col-span-2;
-        @apply flex;
-        @apply justify-center;
-        @apply lg:justify-normal;
-        @apply flex-col;
-    }
-    .contact-nav {
-        @apply col-span-1;
-    }
-    nav.site-navigation {
-
-    }
-}
 
 /* ___________________________________________   responsive button */
 
