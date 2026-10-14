@@ -104,8 +104,8 @@ if ( ! function_exists( 'websussed_core_entry_footer' ) ) :
 				),
 				wp_kses_post( get_the_title() )
 			),
-			'<div class="footer-edit"><span class="edit-link  bg-fuchsia-500 p-1 border-white border-2 rounded-md inline-block text-white">',
-			'</span></div>'
+			'<div class="footer-edit"><div class="edit-link">',
+			'</div></div>'
 		);
 	}
 endif;

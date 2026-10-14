@@ -242,7 +242,7 @@ input {
 
 /* ___________________________________________   edit buttons */
 
-.entry-footer div,
+.entry-footer,
 .edit_custom {
     /* @apply relative; */
     @apply clear-both;
@@ -889,7 +889,17 @@ button.menu-toggle {
   
   }
 
+/* ___________________________________________   blog styles */
 
+span.numbers {
+    @apply float-right;
+    @apply text-xl;
+
+}
+
+a.page-numbers, span.page-numbers.current {
+    @apply p-4;
+}
 
 
 

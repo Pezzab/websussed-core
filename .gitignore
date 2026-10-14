@@ -65,6 +65,7 @@ podsexport
 
 *.old.*
 *.safe.*
+*.dev.*
 *.ignore.*
 *.code-workspace
 *copy*

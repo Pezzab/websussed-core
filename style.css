@@ -351,7 +351,7 @@ a.post-thumbnail, .post-thumbnail, .post-thumbnail img, article p, figure.wp-blo
 textarea, input {
   width: 100%;
 }
-.entry-footer div, .edit_custom {
+.entry-footer, .edit_custom {
   clear: both;
   height: calc(var(--spacing) * 0);
   position: relative;
@@ -831,6 +831,14 @@ button.menu-toggle {
   display: flex;
   flex-direction: row;
   height: 100%;
+}
+span.numbers {
+  float: right;
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
+}
+a.page-numbers, span.page-numbers.current {
+  padding: calc(var(--spacing) * 4);
 }
 @keyframes spin {
   to {

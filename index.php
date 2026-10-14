@@ -64,6 +64,11 @@ get_header();
 
 	<?php websussed_core_yoast_breadcrumb() ; ?>
 
+		<?php 
+			websussed_core_pagination() ; 
+			?>
+	
+
 	<div class="site-width archive">
 		<header class="entry-header <?php echo $max_content?>">
 				<h1 class="entry-title"><?php single_post_title(); ?></h1>
@@ -96,10 +101,13 @@ get_header();
 
 		</div>
 
-		
 
 		<?php 
-		echo websussed_core_custom_content( 'after_content' );
+			websussed_core_pagination() ; 
+			?>
+		
+	<?php 
+		echo websussed_core_custom_content( 'after_content' ) ;
 			?>
 
 	</main><!-- #main -->

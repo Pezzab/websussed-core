@@ -75,6 +75,7 @@ function websussed_core_custom_content( $position ) {
 				$custom_wysiwyg = '';
 				$custom_shortcode = '';
 				$custom_classes = '';
+				$custom_slider = '';
 
 					if ( $custom_position == 'global' ) :
 
@@ -99,7 +100,7 @@ function websussed_core_custom_content( $position ) {
 					global $post;
 					$page_title	 = $post->post_name;
 
-					$feature_img = 'hello' ;
+					$feature_img = '' ;
 
 					if ( get_post_meta( $custom_content_id, 'make_into_bg_img', true) && get_the_post_thumbnail_url( get_the_ID() ) ) :
 
@@ -111,20 +112,23 @@ function websussed_core_custom_content( $position ) {
 					endif ;
 
 
+					if ( $pod->exists() && $pod->field('add_slides') ) :
 
-					if ( $pod->exists() && $pod->field('add_shortcode') ) :
+						
+						$add_slides = $pod->field( 'add_slides' ) ;
+						$add_slides_id = $custom_content_id;
+						$custom_slider_output = websussed_core_universal_slider( $add_slides, $add_slides_id ) ;
 
-						$add_shortcode = $pod->field( 'add_shortcode' );
-						$add_shortcode = '<div class="' . $custom_classes . $position . ' ' . $page_title . ' content_shortcode" data-start="' . $start_date . '" data-end="' . $expiry_date . '">' . $add_shortcode . '</div>' ;
-					
-						$custom_shortcode_edit_button  = '';
+						$custom_slider_output = '<div class="' . $custom_classes . $position . ' ' . $page_title .' content_slider" data-start="' . $start_date . '" data-end="' . $expiry_date . '" ' . $feature_img . '>' . $custom_slider_output . '</div>' ;
+
+						$custom_slider_edit_button  = '';
 
 						if ( get_edit_post_link() ) :
-						$custom_shortcode_edit_button = '<div class="edit_custom"><div class="edit-link"><a target="_blank" href="' . get_edit_post_link( $custom_content_id ) . '">Edit</a></div></div>';
+						$custom_slider_edit_button = '<div class="edit_custom"><div class="edit-link"><a target="_blank" href="' . get_edit_post_link( $custom_content_id ) . '">Edit Slider</a></div></div>';
 						endif;
 
-						$custom_shortcode = '%1s%2s';
-						$custom_shortcode = sprintf( $custom_shortcode, $add_shortcode, $custom_shortcode_edit_button );
+						$custom_slider = '%1s%2s';
+						$custom_slider = sprintf( $custom_slider, $custom_slider_output, $custom_slider_edit_button );
 
 					elseif ( $pod->exists() && $pod->field('custom_html') ) :
 
@@ -134,7 +138,7 @@ function websussed_core_custom_content( $position ) {
 						$custom_html_edit_button  = '';
 
 						if ( get_edit_post_link() ) :
-						$custom_html_edit_button = '<div class="edit_custom"><div class="edit-link"><a target="_blank" href="' . get_edit_post_link( $custom_content_id ) . '">Edit</a></div></div>';
+						$custom_html_edit_button = '<div class="edit_custom"><div class="edit-link"><a target="_blank" href="' . get_edit_post_link( $custom_content_id ) . '">Edit HTML</a></div></div>';
 						endif;
 
 						$custom_html = '%1s%2s';
@@ -148,7 +152,7 @@ function websussed_core_custom_content( $position ) {
 						$custom_wysiwyg_edit_button = '';
 
 						if ( get_edit_post_link() ) :
-						$custom_wysiwyg_edit_button = '<div class="edit_custom"><div class="edit-link"><a target="_blank" href="' . get_edit_post_link( $custom_content_id ) . '">Edit</a></div></div>';
+						$custom_wysiwyg_edit_button = '<div class="edit_custom"><div class="edit-link"><a target="_blank" href="' . get_edit_post_link( $custom_content_id ) . '">Edit WYSIWYG</a></div></div>';
 						endif;
 
 						
@@ -159,17 +163,18 @@ function websussed_core_custom_content( $position ) {
 
 					if ( ( $expiry_date == '0000-00-00' ) && ( $start_date == '0000-00-00' ) ) :
 					
-						echo do_shortcode( $custom_shortcode );	
-						echo $custom_html;
-						echo $custom_wysiwyg;
+
+						echo $custom_slider ;
+						echo $custom_html ;
+						echo $custom_wysiwyg ;
 
 					elseif ( ( $expiry_date < $date_today ) && ( $expiry_date != '0000-00-00'  )) :
 
 					elseif ( $start_date <= $date_today ) :
-
-						echo do_shortcode( $custom_shortcode );	
-						echo $custom_html;
-						echo $custom_wysiwyg;	
+						
+						echo $custom_slider ;
+						echo $custom_html ;
+						echo $custom_wysiwyg ;	
 
 					endif ;
 
@@ -324,6 +329,21 @@ function websussed_core_yoast_breadcrumb(){
 	yoast_breadcrumb( '<div id="breadcrumbs"><div class="site-width"><div>','</div></div></div>' );
 	}
 
+}
+
+function websussed_core_pagination(){
+
+	global $wp_query ;
+	$big = 9999999 ;
+
+	echo '<div class="pagination"><div class="site-width"><span class="numbers">';
+	echo paginate_links( array(
+		'base' 		=> str_replace ( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format'	=> '?paged=%#%',
+		'current'	=> max( 1, get_query_var( 'paged' ) ),
+		'total'		=> $wp_query->max_num_pages
+		) ) ;
+	echo '</span></div></div>' ;
 }
 
 

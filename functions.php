@@ -155,7 +155,7 @@ add_filter( 'script_loader_tag', 'websussed_defer_parsing_of_js', 10 );
  */
 function websussed_core_scripts() {
 
-	wp_enqueue_style( 'websussed-swiper', get_template_directory_uri() . '/src/js/swiper/swiper-bundle.css', array(), _S_VERSION );
+	wp_enqueue_style( 'websussed-swiper', get_template_directory_uri() . '/src/js/swiper/swiper-bundle.min.css', array(), _S_VERSION );
 	wp_style_add_data( 'websussed-swiper', 'rtl', 'replace' );
 
 	wp_enqueue_style( 'websussed-core-style', get_stylesheet_uri(), array(), _S_VERSION );

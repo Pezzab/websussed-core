@@ -1,182 +1,168 @@
 <?php //
 
-add_shortcode( 'universal_slider', 'websussed_core_universal_slider' );
+// add_shortcode( 'universal_slider', 'websussed_core_universal_slider' );
 
-function websussed_core_universal_slider( $atts ) {
+function websussed_core_universal_slider( $add_slides, $custom_content_id ) {
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' ) ;
 
-$slider_atts = shortcode_atts( array(
-    'class'         => '', // make class same as slider content tag! use pattern 'pageslugslider' no spaces
-    'showbgimg'     => 'no',
-    'showtitle'     => 'no',
-    'showheader'    => 'no',
-    'showpgph'      => 'no',
-    'showlink'      => 'no',
-    'showscrollbar' => 'no',
-    'showpagination'=> 'no',
-    'shownav'       => 'no'
-), $atts );
 
-$slider_showbgimg       = esc_attr($slider_atts['showbgimg']) ;
-$slider_showtitle       = esc_attr($slider_atts['showtitle']) ;
-$slider_showpgph        = esc_attr($slider_atts['showpgph']) ;
-$slider_showlink        = esc_attr($slider_atts['showlink']) ;
-$slider_showheader      = esc_attr($slider_atts['showheader']) ;
-$slider_showscrollbar   = esc_attr($slider_atts['showscrollbar']) ;
-$slider_showpagination  = esc_attr($slider_atts['showpagination']) ;
-$slider_shownav         = esc_attr($slider_atts['shownav']) ;
-$slider_count           = 0;
+if ( ! empty( $add_slides ) ) : // check content
+ 
+    $slider_count = 0 ;
 
-$slider_class       = esc_attr($slider_atts['class']) ;
+    $slider_class           = get_post_meta( $custom_content_id, 'add_slider_class' ) ;
+    $slider_showscrollbar   = get_post_meta( $custom_content_id, 'show_slide_scrollbar' ) ;
+    $slider_showpagination  = get_post_meta( $custom_content_id, 'show_pagination' ) ;
+    $slider_shownav         = get_post_meta( $custom_content_id, 'show_slide_navigation' ) ;
 
-if ( is_plugin_active( 'pods/init.php' ) ) :
+    if ( is_plugin_active( 'pods/init.php' ) ) :
 
-    $slider_content = '<div class="swiper ' . $slider_class . '">' ;
+        $slider_content = '<div class="swiper ' . $slider_class[0] . '">' ;
 
-    // <!-- Additional required wrapper -->
-    $slider_content .= '<div class="swiper-wrapper">' ;
+        // <!-- Additional required wrapper -->
+        $slider_content .= '<div class="swiper-wrapper">' ;
 
-     // <!-- Slides -->
+        // <!-- Slides -->
 
-    //______________________________________________________________________
+        foreach ( $add_slides as $add_slide ) {
 
-    $slider_args = array(
-    'post_type' => 'slider_content',
-        'tax_query' => array(
-            array(
-            'taxonomy' => 'slider_tag',
-            'field' => 'slug',
-            'terms' => $slider_class,
-            ),
-        ),
-    );
+            $slide_id = $add_slide['ID'] ;
 
-    // the query.
-    $the_query = new WP_Query( $slider_args );
+            $slider_count++;
 
-    if ( $the_query->have_posts() ) :
-
-        while ( $the_query->have_posts() ) :
-            $the_query->the_post();
-
-                $slider_count++;
-                $slider_img = get_the_post_thumbnail( get_the_ID(), 'feature-full-width' ) ;
-                $slider_img_url = get_the_post_thumbnail_url( get_the_ID(), 'feature-full-width' ) ;
-                $slider_title = get_the_title();
+            $slider_showbgimg       = get_post_meta( $slide_id, 'slider_showbgimg' ) ;
+            $slider_showtitle       = get_post_meta( $slide_id, 'showtitle') ;
+            $slider_showpgph        = get_post_meta( $slide_id, 'showpgph') ;
+            $slider_showlink        = get_post_meta( $slide_id, 'showlink') ;
+            $slider_showheader      = get_post_meta( $slide_id, 'showheader') ;
 
 
-    $slider_header_text     = get_post_meta( get_the_ID(), 'websussed_header_text' );
-    $slider_paragraph_text  = get_post_meta( get_the_ID(), 'websussed_paragraph_text' );
-    $slider_custom_html     = get_post_meta( get_the_ID(), 'websussed_slider_custom_html' );
-    $slider_button_link     = get_post_meta( get_the_ID(), 'websussed_slide_link_button' );
-    $slider_button_text     = get_post_meta( get_the_ID(), 'websussed_slide_link_button_text' );
-    
+            $slider_img     = get_the_post_thumbnail( $slide_id, 'feature-full-width' ) ;
+            $slider_img_url = get_the_post_thumbnail_url( $slide_id, 'feature-full-width' ) ;
+            $slider_title   = get_the_title();
 
 
-    if ( $slider_showbgimg == 'yes' ) :
+            $slider_header_text     = get_post_meta( $slide_id, 'websussed_header_text' );
+            $slider_paragraph_text  = get_post_meta( $slide_id, 'websussed_paragraph_text' );
+            $slider_custom_html     = get_post_meta( $slide_id, 'websussed_slider_custom_html' );
+            $slider_button_link     = get_post_meta( $slide_id, 'websussed_slide_link_button' );
+            $slider_button_text     = get_post_meta( $slide_id, 'websussed_slide_link_button_text' );
 
-        $slider_content .= '<div class="swiper-slide slide-' . $slider_count . '" style="background-image: url(' . $slider_img_url . ');"><div class="site-width">';
+            if ( $slider_showbgimg = true ) :
 
-    else :
-        
-        $slider_content .= '<div class="swiper-slide showbgimg-no slide-' . $slider_count . '"><div class="site-width">' . $slider_img . '<div>';
-        
-    endif ;
+                $slider_content .= '<div class="swiper-slide slide-' . $slider_count . '" style="background-image: url(' . $slider_img_url . ');"><div class="site-width">';
 
-        if ( $slider_showtitle == 'yes' ) :
+            else :
+                
+                $slider_content .= '<div class="swiper-slide showbgimg-no slide-' . $slider_count . '"><div class="site-width">' . $slider_img . '<div>';
+                
+            endif ;
 
-            $slider_content .= '<h2>' . $slider_title . '</h2>';
+            if ( $slider_showtitle == true ) :
 
-        endif ;
+                $slider_content .= '<h2>' . $slider_title . '</h2>';
 
-        if ( ( $slider_showheader == 'yes' ) && (! empty ( $slider_header_text[0] ) ) ) :
+            endif ;
 
-            $slider_content .= '<h2>' . $slider_header_text[0] . '</h2>';
+            if ( (! empty ( $slider_header_text[0] ) ) ) :
 
-        endif ;
+                $slider_content .= '<h2>' . $slider_header_text[0] . '</h2>';
 
-        if ( ( $slider_showpgph == 'yes' ) && (! empty ( $slider_paragraph_text[0] ) ) ) :
+            endif ;
 
-            $slider_content .= '<p>' . $slider_paragraph_text[0] . '</p>';
+            if ( (! empty ( $slider_paragraph_text[0] ) ) ) :
 
-        endif ;
+                $slider_content .= '<p>' . $slider_paragraph_text[0] . '</p>';
 
-        if ( ( $slider_showlink == 'yes' ) && (! empty ( $slider_button_link[0] ) ) && (! empty ( $slider_button_text[0] ) )) :
+            endif ;
 
-            $slider_content .= '<div><button><a href="' . $slider_button_link[0] . '">' . $slider_button_text[0] . '</a></button></div>';
+            if ( (! empty ( $slider_button_link[0] ) ) && (! empty ( $slider_button_text[0] ) )) :
 
-        endif ;
+                $slider_content .= '<div><button><a href="' . $slider_button_link[0] . '">' . $slider_button_text[0] . '</a></button></div>';
 
-        if ( $slider_showbgimg == 'no' ) :
+            endif ;
 
-        $slider_content .= '</div></div></div><!-- close slide -->';
+            if ( $slider_showbgimg == false ) :
 
-        else :
-        $slider_content .= '</div></div><!-- close slide -->';
-        endif ;
+            $slider_content .= '</div></div></div><!-- close slide -->';
 
-    endwhile; 
+            else :
+            $slider_content .= '</div></div><!-- close slide -->';
+            endif ;
+
+        }
+
 
         $slider_content .= '</div><!-- .swiper-wrapper -->' ;
 
-    if ( ( $slider_showpagination == 'yes' ) ) :
-        //  <!-- If we need pagination -->
-        $slider_content .= '<div class="swiper-pagination"></div>' ;
-    endif ;
+        if ( ( $slider_showpagination[0] == true ) ) :
+            //  <!-- If we need pagination -->
+            $slider_content .= '<div class="swiper-pagination"></div>' ;
+        endif ;
 
-    if ( ( $slider_shownav == 'yes' ) ) :
-        //  <!-- If we need navigation buttons -->
-        $slider_content .= '<div class="swiper-button-prev"></div>' ;
-        $slider_content .= '  <div class="swiper-button-next"></div>' ;
-        // <!-- If we need scrollbar -->
-    endif ;
+        if ( ( $slider_shownav[0] == true ) ) :
+            //  <!-- If we need navigation buttons -->
+            $slider_content .= '<div class="swiper-button-prev"></div>' ;
+            $slider_content .= '  <div class="swiper-button-next"></div>' ;
 
-    if ( ( $slider_showscrollbar == 'yes' ) ) :
-        $slider_content .= '  <div class="swiper-scrollbar"></div>' ;
-    endif ;
+        endif ;
 
-        wp_reset_postdata();
+        if ( ( $slider_showscrollbar[0] == true ) ) :
+            // <!-- If we need scrollbar -->
+            $slider_content .= '  <div class="swiper-scrollbar"></div>' ;
+            endif ;
 
-    else : 
-        esc_html_e( 'Sorry, no posts matched your criteria.' );
-    endif;              
+                wp_reset_postdata();
 
-    //______________________________________________________________________
+            else : 
+            // esc_html_e( 'Sorry, no posts matched your criteria.' );
+        endif;     
 
-
- 
+                
     $script_content = "<script>";
-    $script_content .= "const " . $slider_class . " = new Swiper('." . $slider_class . "', {";
-    $script_content .= "direction: 'horizontal', loop: true, speed: 1000, effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-    },
+    $script_content .= "const " . $slider_class[0] . " = new Swiper('." . $slider_class[0] . "', {";
+    $script_content .= "direction: 'horizontal', loop: true, speed: 1000, effect: 'fade',";
 
-    // If we need pagination
-    // pagination: {
-    //     // el: '.swiper-pagination',
-    // },
+    //   $script_content .= "breakpoints: {
+    // 1000: {
+    //   slidesPerView: 3,
+    //   spaceBetween: 20
+    // },},";
+    
+    $script_content .=  " autoplay: {
+        delay: 5000,
+    },";
 
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
+    if ( ( $slider_showpagination[0] == true ) ) :
+        // If we need pagination
+        $script_content .=  "pagination: {
+            el: '.swiper-pagination',
+        },";
+    endif ;
 
-    // And if we need scrollbar
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    },
-    });</script>
-    ";
+    if ( ( $slider_shownav[0] == true ) ) :
+        // Navigation arrows
+        $script_content .=  "navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },";
+    endif ;
 
-    // apply_filters('the_content', $slider_content );
+    if ( ( $slider_showscrollbar[0] == true ) ) :
+        // And if we need scrollbar
+        $script_content .=  "scrollbar: {
+            el: '.swiper-scrollbar',
+        },";
+    endif ;
+
+
+     $script_content .=  " });</script>";
 
 
     $slider_content .= $script_content;
 
-return  $slider_content . '</div>'; // closing div comes after script
+    return  $slider_content . '</div>'; // closing div comes after script
 
 endif ;
 
